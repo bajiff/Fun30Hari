@@ -1,0 +1,18 @@
+<!-- Example -->
+ <!-- Perbaiki kode dibawah ini dengan manual  -->
+    <div className="card">
+      <img src={avatar} className="photo" alt="MyProfile"/>
+      
+      <div className="info">
+        <h2 style={"color:red"}>Profile: {username}</h2>
+        <br/>
+        <p>Status: <b>Active</b></p>
+        
+        <label htmlFor="input-bio">Bio:</label>
+        <input id="input-bio" type="text" placeholder="Tulis bio..." name="input-bio"/>
+      </div>
+      
+      <div>
+        <button onClick={() => alert('Saved!')}>Simpan</button>
+      </div>
+    </div>

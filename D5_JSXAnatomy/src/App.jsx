@@ -1,9 +1,13 @@
 import Button from "./components/Button";
+import UserProfile from "./components/UserProfile";
 
 function App() {
   return (
-  <Button></Button>
-  )
+    <>
+    <UserProfile></UserProfile>
+    <Button/>
+    </>
+  );
 }
 
 export default App;
