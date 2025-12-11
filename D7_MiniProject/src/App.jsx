@@ -1,24 +1,14 @@
-// import Button from "./components/Button";
-// import UserProfile from "./components/UserProfile";
-// import Card from "./components/Card";
-
-import {Button,Card,UserProfile} from "./components/Index";
+import {Button,Card,TeamMember,UserProfile} from "./components/Index";
 
 // ? Data Students
-import {students} from "../data/index.js";
+import {students,members} from "../data/index.js";
 
 function App() {
-  console.log(students);
+  console.log(members);
   return (
-    <>
-    <UserProfile></UserProfile>
-    <Button/>
-      {students.map((student) => (
-      <Card name={student.name} nim={student.nim} tier={student.tier} major={student.major}  faculty={student.faculty}/>
-      ))
-      }
-
-    </>
+    <section style={{ padding:"10px",gap:"9px",display:"flex",flexWrap:"wrap" }}>
+      {members.map((member) => <TeamMember key={member.id} id={member.id} name={member.name} role={member.role} img={member.img} isOnline={member.isOnline}/>)}
+    </section>
   );
 }
 

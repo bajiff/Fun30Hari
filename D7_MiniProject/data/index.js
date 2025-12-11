@@ -1,2 +1,3 @@
 import students from "./students.js";
-export {students}
+import members from "./members.js";
+export {students, members}
