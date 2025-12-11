@@ -1,6 +1,6 @@
 // ! Day 3 Modules & Spread Operator
 // ?1. Spread Operator (...) Di Javascript lama, kalau mau gabung array kita pakai concat. Kalau mau copy object, ribet. Di ES6, kita punya ... (Spread).
-import {cart,user} from "./examples.js";
+import {cart,user} from "./examples/examples.js";
 
 // * Contoh
 const oldBrands = ["Sony","Advan","Blackberry","Nokia","Polytron"];

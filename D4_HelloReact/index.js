@@ -1,4 +1,4 @@
-import dataStudents from "./dataStudents.js";
+import dataStudents from "./data/dataStudents.js";
 
 // const filterKelas = dataStudents.filter((student) => student.kelas === "A");
 // // console.log(filterKelas);
