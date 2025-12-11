@@ -8,6 +8,12 @@ const UserProfile = () => {
     "color":"red",
     "backgroundColor":"blue"
   };
+  const buttonStyle = {
+    "color":"black",
+    "backgroundColor":"red",
+    "padding":"5px",
+    "margin":"10px"
+  };
   return (
     <div className="card">
       <img src={avatar} alt="Gambar Saya" srcset="" />
@@ -19,7 +25,7 @@ const UserProfile = () => {
         <input id="input-bio" type="text" placeholder="Tulid bio" name="input-bio" required autoFocus />
       </div>
       <div>
-        <button onClick={() => alert(`Username ${username}`)}>Save</button>
+        <button style={buttonStyle} onClick={() => alert(`Username ${username}`)}>Save</button>
       </div>
     </div>
   );
