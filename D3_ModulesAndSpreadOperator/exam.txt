@@ -1,0 +1,78 @@
+.
+
+📅 Hari 3: Modules & Spread Operator
+Hari ini kita masuk ke materi yang bikin kepala pemula sering pusing saat lihat tutorial React: Titik tiga ... dan cara Pindah-pindah File.
+
+1. Spread Operator (...)
+Di Javascript lama, kalau mau gabung array kita pakai concat. Kalau mau copy object, ribet. Di ES6, kita punya ... (Spread).
+
+Bayangkan ... itu seperti mengeluarkan isi koper. Kamu buka koper, lalu isinya kamu tuang ke lantai.
+
+Kenapa Penting di React? React sangat menjaga Immutability (Data tidak boleh diubah langsung). ❌ Salah: user.name = "Budi" (Data asli berubah). ✅ Benar: Buat object baru, copy data lama, ganti yang perlu saja.
+
+Contoh Array:
+
+JavaScript
+
+const angkaLama = [1, 2];
+const angkaBaru = [...angkaLama, 3, 4]; // [1, 2, 3, 4]
+Contoh Object (PENTING BANGET):
+
+JavaScript
+
+const user = { nama: "Agus", role: "Admin" };
+// Copy user lama, tapi GANTI nama jadi "Bambang"
+const updatedUser = { ...user, nama: "Bambang" };
+// Hasil: { nama: "Bambang", role: "Admin" }
+2. Modules (Import & Export)
+React itu kumpulan potongan kode (Component) yang disatukan. Kita wajib memecah kode ke banyak file.
+
+Named Export: (Bisa banyak dalam satu file)
+
+JavaScript
+
+// file: math.js
+export const tambah = (a, b) => a + b;
+export const kurang = (a, b) => a - b;
+
+// file: main.js
+import { tambah, kurang } from './math.js';
+Default Export: (Cuma boleh satu per file, biasanya untuk Komponen Utama)
+
+JavaScript
+
+// file: User.js
+const User = () => console.log("Ini User");
+export default User;
+
+// file: main.js
+import User from './User.js'; // Namanya bebas pas di-import
+📝 Tugas Hari 3 (The "React State" Pattern)
+Tugas ini mensimulasikan cara kita mengupdate data di React State. Jangan pakai cara lama (array.push atau object.name = ...). Gunakan Spread Operator.
+
+Copy data awal ini:
+
+JavaScript
+
+const cart = ["Apel", "Jeruk"];
+
+const user = {
+    id: 1,
+    name: "Si Pulan",
+    email: "pulan@gmail.com",
+    settings: {
+        darkmode: false,
+        notifications: true
+    }
+};
+Soal:
+
+Gabung Array: Buat variabel newCart. Isinya adalah semua buah dari cart lama, DITAMBAH "Mangga" dan "Pisang". (Ekspektasi: ["Apel", "Jeruk", "Mangga", "Pisang"]).
+
+Update Object (Level 1): Buat variabel updatedUser. Copy semua data dari user, tapi ubah name menjadi "Si Jago Code".
+
+Tantangan Logic: Tuliskan (diketik manual) sintaks import jika saya punya file Button.js yang isinya export default Button, bagaimana cara saya memanggilnya di file App.js?
+
+Clue untuk no 2: Ingat urutan. Copy dulu (...user), baru timpa property yang mau diubah.
+
+Silakan dicoba! Kalau paham ini, besok kita siap install React beneran!

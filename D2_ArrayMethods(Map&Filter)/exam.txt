@@ -1,0 +1,59 @@
+.
+
+📅 Hari 2: Array Methods (Map & Filter)
+Selamat datang di Hari 2. Hari ini kita bahas musuh terbesar pemula yang pindah ke React: Meninggalkan for loop.
+
+Di React, saat kita ingin menampilkan daftar data (misal: list komentar, list produk), kita TIDAK menggunakan for (let i = 0...). Kita menggunakan Array Methods.
+
+1. .map() (Si Tukang Ubah Bentuk)
+Ini method paling penting. map mengambil sebuah array, mengubah isinya satu per satu, dan mengembalikan array baru dengan jumlah item yang sama.
+
+Analogi: Kamu punya loyang isi adonan mentah (Array A), kamu masukkan oven (Map), keluarnya kue matang (Array B).
+
+Sintaks:
+
+JavaScript
+
+const angka = [1, 2, 3];
+const kaliDua = angka.map((item) => item * 2);
+// Hasil: [2, 4, 6]
+2. .filter() (Si Tukang Seleksi)
+Sesuai namanya, dia menyaring data. Kalau kondisinya true, data lolos. Kalau false, data dibuang.
+
+Analogi: Security bandara. Yang bawa tiket (True) boleh lewat, yang tidak (False) ditahan.
+
+Sintaks:
+
+JavaScript
+
+const angka = [1, 2, 3, 4, 5];
+const genap = angka.filter((item) => item % 2 === 0);
+// Hasil: [2, 4]
+📝 Tugas Hari 2 (No AI, Manual Coding)
+Kita simulasi data e-commerce sederhana. Copy data ini ke kodinganmu:
+
+JavaScript
+
+const products = [
+  { id: 1, name: "Laptop", price: 15000000, category: "Electronics" },
+  { id: 2, name: "Sepatu", price: 300000, category: "Fashion" },
+  { id: 3, name: "Mouse", price: 150000, category: "Electronics" },
+  { id: 4, name: "Kemeja", price: 250000, category: "Fashion" }
+];
+Tugasmu:
+
+Gunakan .map() untuk membuat array baru yang isinya HANYA nama produknya saja.
+
+Ekspektasi output: ["Laptop", "Sepatu", "Mouse", "Kemeja"]
+
+Gunakan .filter() untuk mencari produk yang harganya di bawah 500.000.
+
+Ekspektasi output: Array berisi object Sepatu, Mouse, dan Kemeja.
+
+Tantangan Combo: Gunakan .filter() dulu untuk cari barang "Electronics", LALU sambung (chaining) dengan .map() untuk menampilkan namanya saja.
+
+Logic: Filter Electronics -> [Laptop, Mouse] -> Map ambil nama -> ["Laptop", "Mouse"]
+
+Coba kerjakan pelan-pelan. Ingat, gunakan Arrow Function di dalam .map dan .filter biar kodenya singkat dan cantik.
+
+Silakan kirim hasilnya kalau sudah jadi!
