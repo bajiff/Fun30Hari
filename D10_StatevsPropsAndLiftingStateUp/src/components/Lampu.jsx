@@ -1,7 +1,7 @@
-const Lampu = ({on}) => {
+function Lampu({isOn}) {
   return (
-    <div>Lampu</div>
-  )
-}
+    <div>Lampu: {isOn ? "Menyala" : "Mati"}</div>
+  );
+};
 
-export default Lampu
+export default Lampu;
