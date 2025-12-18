@@ -1,4 +1,4 @@
-import {Button,Card,TeamMember,UserProfile,Counter, EventPractice, Rumah} from "./components/Index";
+import {Button,Card,TeamMember,UserProfile,Counter, EventPractice, Rumah, Products} from "./components/Index";
 import Home from "./components/Home.jsx";
 
 // ? Data Students
@@ -8,6 +8,7 @@ function App() {
   students;
   return (
     <>
+      <Products/>
       <Home/>
       <Rumah/>
       <Counter/>
