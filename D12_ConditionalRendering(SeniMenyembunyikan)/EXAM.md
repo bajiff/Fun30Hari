@@ -1,58 +1,61 @@
-📅 Hari 11: Rendering List & Keys (Anti Error Merah)
-Selamat datang di Hari 11. Kita akan kembali membahas .map(), tapi kali ini lebih dalam tentang masalah Key dan Manipulasi List.
+📅 Hari 12: Conditional Rendering (Seni Menyembunyikan)
+Hari ini kita belajar membuat UI yang dinamis. "Kalau A terjadi, tampilkan B. Kalau tidak, tampilkan C."
 
-Masalah: "Kenapa Harus Pakai Key?"
-Kamu mungkin berpikir: "Ah, biar gak ada warning merah aja di console." Salah. Key itu adalah "KTP" atau identitas bagi React.
+Di React, kita tidak pakai if-else block di dalam JSX (HTML). Kita pakai 3 jurus ninja:
 
-Bayangkan kamu punya list: [Budi, Siti, Joko]. Kalau kamu hapus "Budi", React perlu tahu: "Apakah aku harus hapus elemen pertama? Atau geser elemen kedua dan ketiga?"
-
-Tanpa key yang unik, React bisa salah hapus DOM, inputan user bisa tertukar, atau animasi jadi aneh.
-
-Aturan Key yang Baik:
-Unik: Tidak boleh ada dua item dengan key sama di satu list.
-
-Stabil: Jangan pakai Math.random(). Nanti setiap render itemnya dianggap baru terus (re-render massal = lambat).
-
-JANGAN PAKAI INDEX ARRAY (Kecuali Terpaksa):
-
-❌ map((item, index) => <li key={index}>...</li>)
-
-Kenapa? Kalau listnya diurutkan ulang (sort) atau ada yang dihapus di tengah, indexnya berubah semua. React jadi bingung.
-
-✅ Gunakan ID dari database: map(item => <li key={item.id}>...</li>)
-
-📝 Tugas Hari 11: The Dynamic Shopping List
-Kita akan buat aplikasi "Daftar Belanja" yang itemnya bisa dihapus.
-
-Spesifikasi:
-
-Data Awal: Buat state array berisi 3 barang awal.
+1. Ternary Operator (? :)
+Dipakai untuk memilih antara Dua Opsi.
 
 JavaScript
 
-const [items, setItems] = useState([
-  { id: 1, nama: "Beras" },
-  { id: 2, nama: "Telur" },
-  { id: 3, nama: "Kecap" }
-]);
-Tampilkan: Render list tersebut menggunakan .map().
-
-Fitur Hapus (Event Handling + State):
-
-Di sebelah tiap nama barang, beri tombol "Hapus" (X).
-
-Saat diklik, barang tersebut hilang dari layar.
-
-Clue Logic: Gunakan .filter(). Kamu harus membuat array baru yang isinya adalah SEMUA item KECUALI yang ID-nya diklik.
-
-Tantangan Logic: Jangan pakai splice. Gunakan filter untuk menjaga immutability.
+{isLoggedIn ? <UserDashboard /> : <LoginButton />}
+2. Logical AND (&&)
+Dipakai jika Hanya Satu Opsi (Kalau true muncul, kalau false hilang).
 
 JavaScript
 
-// Pola hapus di React:
-const hapusItem = (idYangDihapus) => {
-   setItems(items.filter(item => item.id !== idYangDihapus));
+{isAdmin && <button>Delete User</button>}
+Artinya: Jika isAdmin true, tombol muncul. Jika false, React mengabaikannya (null).
+
+3. Early Return (Pencegahan)
+Dipakai jika satu halaman penuh tidak boleh muncul (misal lagi loading).
+
+JavaScript
+
+if (isLoading) {
+  return <div>Sabar ya, lagi loading...</div>;
 }
-Coba implementasikan ini dalam satu komponen ShoppingList.jsx. Saya mau lihat kamu menghubungkan onClick di tombol kecil ke fungsi hapus di parent.
+// Kode di bawah ini gak bakal jalan kalau loading
+return <div>Website Utama</div>
+📝 Tugas Hari 12: Stok Gudang Pintar
+Gunakan file ProductList.jsx yang tadi (yang datanya banyak itu). Kita akan modifikasi tampilannya berdasarkan kondisi data.
 
-Silakan beraksi! 🛒
+Tugas:
+
+Low Stock Warning (Ternary / Logic Style):
+
+Lihat kolom Stock.
+
+Jika stock di bawah 10, warnai angkanya jadi MERAH dan tebal.
+
+Jika stock aman (>= 10), biarkan warna hitam biasa.
+
+Out of Stock Logic (Ternary Text):
+
+Jika stock 0, jangan tampilkan angka 0. Tampilkan teks "Habis!" dengan background merah.
+
+Diskon Sultan (Logical AND &&):
+
+Lihat kolom Price.
+
+Jika harga di atas Rp 5.000, tampilkan icon/teks 🤑 (atau tulisan "Mahal") di samping harganya.
+
+Fitur Toggle Table (Conditional Rendering Component):
+
+Di atas tabel, buat tombol: "Sembunyikan Tabel" / "Tampilkan Tabel".
+
+Pakai state showTable (boolean).
+
+Gunakan Logical AND && untuk menyembunyikan/menampilkan seluruh tabel berdasarkan tombol itu.
+
+Coba mainkan logikanya. Ini skill penting untuk dashboard admin! Silakan coding! 🕵️‍♂️

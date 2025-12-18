@@ -6,7 +6,7 @@ const ProductList = () => {
     setLocalProducts(localProducts.filter(product => product.id !== idProduct));
   };
   return (
-    <table>
+    <table className={`table-fixed`}>
       <thead>
         <tr>
           <th>No</th>
@@ -23,7 +23,7 @@ const ProductList = () => {
           <td>{product.id}</td>
           <td>{product.name}</td>
           <td>{product.price}</td>
-          <td>{product.stock}</td>
+          <td className={`${product.stock < 10 ? "text-red-600 font-bold" : ""} ${product.stock >= 10 ? "text-green-600 font-bold" : "text-black"} ${product.stock < 1 ? "bg-red-600 text-black" : ""}`} >{product.stock < 1 ? "Habis" : product.stock}</td>
           <td>{product.category}</td>
           <td><button onClick={() => deleteProduct(product.id)}>Delete</button></td>
         </tr>
