@@ -1,4 +1,4 @@
-import {Button,Card,TeamMember,UserProfile,Counter, EventPractice, Rumah, Products, ShoppingList, ProductList} from "./components/Index";
+import {Button,Card,TeamMember,UserProfile,Counter, EventPractice, Rumah,ProductForm, Products, ShoppingList, ProductList} from "./components/Index";
 import Home from "./components/Home.jsx";
 
 // ? Data Students
@@ -8,6 +8,7 @@ function App() {
   students;
   return (
     <>
+      <ProductForm/>
       <ProductList/>
       <ShoppingList/>
       <Products/>
