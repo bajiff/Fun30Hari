@@ -9,6 +9,11 @@ const ProductList = () => {
     setLocalProducts(localProducts.filter(product => product.id !== idProduct));
   };
   
+  const getStock = (productStock) => {
+    if (productStock === 0 ) return "text-white bg-red-600";
+    if (productStock < 10 ) return "text-red-600 font-bold";
+    return "text-green-600";
+  }
 
   const hiddenToggler = () => {
     setShowTable(prev => !prev);
@@ -20,11 +25,6 @@ const ProductList = () => {
   ${showTable ? "hover:bg-red-900" : "hover:bg-green-900"}
   transition-all duration-300 cursor-pointer`
 
-  const getStock = (productStock) => {
-    if (productStock === 0 ) return "text-white bg-red-600";
-    if (productStock < 10 ) return "text-red-600 font-bold";
-    return "text-green-600";
-  }
   return (
     <section>
       <button className={hiddenButtonStyle} onClick={hiddenToggler}>{showTable ? "Hide Table" : "Show Table"}</button>      
