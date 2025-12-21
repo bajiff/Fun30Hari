@@ -35,4 +35,4 @@ JavaScript
   <option value="Electronics">Elektronik</option>
   <option value="Food">Makanan</option>
 </select>
-Coba buat formnya dulu. Fokus ke State yang mengendalikan Input. Silakan coding! 📝ile:///home/bajilinux/Documents/Learning/Croding/Javascript/Fun30Hari/D12_ConditionalRendering(SeniMenyembunyikan)
+Coba buat formnya dulu. Fokus ke State yang mengendalikan Input. Silakan coding! 
