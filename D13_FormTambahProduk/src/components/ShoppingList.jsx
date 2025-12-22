@@ -24,7 +24,7 @@ const ShoppingList = () => {
       <tbody>
         {items.map(item => {
           return(
-            <tr>
+            <tr key={item.id}>
               <td className="bg-blue-400 border border-gray-400 ">{item.id}</td>
               <td className="bg-blue-400 border border-gray-400 ">{item.name}</td>
               <td className="bg-blue-400 border border-gray-400 "><button className="bg-blue-400 cursor-pointer" onClick={() => deleteItem(item.id)}>Delete</button></td>

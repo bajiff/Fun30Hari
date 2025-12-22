@@ -15,7 +15,7 @@ const Products = () => {
       </thead>
       <tbody>
         {products.map(product => (
-          <ProductItem key={product.key} id={product.id} name={product.name} price={product.price} stock={product.stock} category={product.category}/>
+          <ProductItem key={product.id} id={product.id} name={product.name} price={product.price} stock={product.stock} category={product.category}/>
         ))}
       </tbody>
     </table>

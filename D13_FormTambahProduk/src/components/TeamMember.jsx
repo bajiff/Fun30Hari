@@ -8,7 +8,7 @@ const TeamMember = ({id, name,role,img,isOnline}) => {
           <li>Id: {id}</li>
           <li>Name: {name}</li>
           <li>Role: {role}</li>
-          <li>Picture: <img src={img} alt="Photo Profile" srcset="" /></li>
+          <li>Picture: <img src={img} alt="Photo Profile" srcSet="" /></li>
           <li><span style={statusStyle}>{isOnline ? "Online" : "Offline"}</span></li>
         </ul>
   );
