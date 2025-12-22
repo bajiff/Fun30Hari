@@ -3,16 +3,19 @@ import { useState } from "react";
 const ProductForm = () => {
 
   const [name, setName] = useState("");
-  const [price, setPrice] = useState(0);
-  const [category, setCategory] = useState("Makanan");
-  const [stock, setStock] = useState(0);
+  const [price, setPrice] = useState("");
+  const [category, setCategory] = useState("");
+  const [stock, setStock] = useState("");
   
   const buttonCondition = `${name === "" || stock < 1}`
 
   const formClass = `max-w-xl grid grid-cols-2 gap-4 mx-auto p-5 rounded border bg-gray-400 `
-  const sectionClass = `text-yellow-400`;
-  const inputClass = `p-1 rounded border placeholder:text-yellow-100`;
-  const buttonClass = `w-full p-1 rounded border`
+  const sectionClass = `py-5`;
+  const inputClass = `p-1 rounded border  bg-green-400 placeholder:text-gray-100`;
+  
+  const selectClass = `flex gap-4 p-1 rounded border bg-gray-400 bg-green-400 text-yellow-100`;
+
+  const buttonClass = `w-full p-1 rounded border hover:bg-green-600 bg-green-400 transition-all duration-300`
 
   return (
     <form action="/" method="post" className={formClass}>
@@ -29,8 +32,8 @@ const ProductForm = () => {
 
     <section className={sectionClass}>
     <label htmlFor="category">Category</label>
-    <select name="category" id="category">
-    <option  selected>Pilih</option>
+    <select name="category" id="category" className={selectClass}  onChange={e => setCategory(e.target.value)}>
+      <option value="Pilih" selected>Pilih</option>
       <option value={category}>{category}</option>
     </select>
     </section>
@@ -40,7 +43,7 @@ const ProductForm = () => {
     <input type="number" name="stock" id="stock" className={inputClass} value={stock} placeholder="80" required />
     </section>
 
-    <button type="button" className={buttonClass} disabled={buttonCondition}>Submit</button>
+    <button type="submit" className={buttonClass} disabled={buttonCondition}>Submit</button>
 
     </form>
   );
