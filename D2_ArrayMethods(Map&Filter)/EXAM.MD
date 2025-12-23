@@ -1,5 +1,3 @@
-.
-
 📅 Hari 2: Array Methods (Map & Filter)
 Selamat datang di Hari 2. Hari ini kita bahas musuh terbesar pemula yang pindah ke React: Meninggalkan for loop.
 
@@ -24,22 +22,22 @@ Analogi: Security bandara. Yang bawa tiket (True) boleh lewat, yang tidak (False
 
 Sintaks:
 
-JavaScript
+```JavaScript
 
 const angka = [1, 2, 3, 4, 5];
 const genap = angka.filter((item) => item % 2 === 0);
 // Hasil: [2, 4]
-📝 Tugas Hari 2 (No AI, Manual Coding)
-Kita simulasi data e-commerce sederhana. Copy data ini ke kodinganmu:
-
-JavaScript
+//📝 Tugas Hari 2 (No AI, Manual Coding)
+// Kita simulasi data e-commerce sederhana. Copy data ini ke kodinganmu:
 
 const products = [
-  { id: 1, name: "Laptop", price: 15000000, category: "Electronics" },
-  { id: 2, name: "Sepatu", price: 300000, category: "Fashion" },
-  { id: 3, name: "Mouse", price: 150000, category: "Electronics" },
-  { id: 4, name: "Kemeja", price: 250000, category: "Fashion" }
+  { id: 1, name: "laptop", price: 15000000, category: "electronics" },
+  { id: 2, name: "sepatu", price: 300000, category: "fashion" },
+  { id: 3, name: "mouse", price: 150000, category: "electronics" },
+  { id: 4, name: "kemeja", price: 250000, category: "fashion" }
 ];
+```
+
 Tugasmu:
 
 Gunakan .map() untuk membuat array baru yang isinya HANYA nama produknya saja.
