@@ -1,3 +1,36 @@
+Hari 1: Modern JS Part I: Arrow Function & Destructuring (Agar kodemu ringkas).
+Your Code
+```js
+// * declarative function 
+function sama(nama) {
+  console.log(`Halo ${nama}`)
+};
+
+// * Arrow Function
+const greeting = (name) => {
+  console.log(`Halo ${name}`)
+}
+
+const settings = {
+  "theme":"dark",
+  "fontSize":"14px",
+  "sidebar":true
+};
+
+const {theme,fontSize,sidebar} = settings;
+// console.log(`Theme: ${theme} Fontsize: ${fontSize} Sidebar: ${sidebar}`)
+
+const getTheme = (settings) => {
+  const data = `Theme ${settings.theme} FontSize: ${settings.fontSize} Sidebar: ${sidebar}`
+  console.log(data);
+  return data;
+};
+getTheme(settings);
+
+
+apakah seperti itu? tolong berikan arahan tapi jangan beresin kodenya sebelum saya menyerah
+```
+
 1. Tantangan Scope (Lingkup Variabel) ⚠️
 Coba perhatikan fungsi getTheme kamu di baris ini:
 
@@ -8,13 +41,13 @@ Kamu memanggil sidebar langsung. Pertanyaannya: Dari mana variabel sidebar itu d
 
 Jawabannya: Dia mengambil dari const {sidebar} = settings di baris 17 (di luar fungsi).
 
-Masalahnya: Kalau baris 17 dihapus, fungsimu ERROR.
+Masalahnya: Kalau baris const {theme,fontSize,sidebar} dihapus, fungsimu ERROR.
 
 Clean Code: Fungsi yang baik itu mandiri (pure). Dia harusnya cuma peduli sama apa yang dikirim lewat parameter (settings), jangan ngambil dari luar.
 
 Tugas: Pastikan sidebar juga diambil dari parameter settings, bukan dari variabel global.
 
-2. Destructuring di Parameter (React Style) 💡
+1. Destructuring di Parameter (React Style) 💡
 Di soal nomor 3, saya minta: "lakukan destructuring di parameter". Saat ini kamu melakukan:
 
 JavaScript
