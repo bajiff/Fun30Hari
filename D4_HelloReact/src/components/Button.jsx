@@ -1,13 +1,15 @@
-import { useState } from "react"
+import React, { useState } from 'react'
 
 const Button = () => {
-  const [name, setName] = useState("Heker");
+  const [role, setRole] = useState("Pemula React Dev");
   return (
-    <>
-      <h1>Hello dek saya adalah seorang ${name}</h1>
-      <button onClick={() => setName("Programmer")}>Change Role</button>
-    </>
+    <section>
+      <p>{role}</p>
+      <button onClick={() => setRole("React Dev")}>
+        Change Role
+      </button>
+    </section>
   )
 }
 
-export default Button;
+export default Button
