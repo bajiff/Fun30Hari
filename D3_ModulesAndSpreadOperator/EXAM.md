@@ -1,5 +1,3 @@
-.
-
 📅 Hari 3: Modules & Spread Operator
 Hari ini kita masuk ke materi yang bikin kepala pemula sering pusing saat lihat tutorial React: Titik tiga ... dan cara Pindah-pindah File.
 
