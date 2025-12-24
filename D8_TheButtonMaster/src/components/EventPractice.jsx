@@ -7,22 +7,28 @@ const EventPractice = () => {
     alert("Gacor data telah di simpan");
     console.log(`Event aman coy ${e.target.value}`)
   }
+  const formClass =`flex flex-col max-w-xl rounded bg-sky-500 mx-auto p-4 gap-5 mt-10`
+  const labelClass = `text-white`
+  const inputClass = `border rounded p-2`
+  const submitClass = `bg-green-400 rounded`
+  const greetClass = `bg-red-400 rounded`
+  const greetBajiClass = `bg-yellow-400 rounded`
+  
+
   return (
-    <>
-      <form action="/" method="get">
-        <label htmlFor="firstName">First Name</label>
-        <input type="text" id="firstName" name="firstName" placeholder="Baji" required autoFocus onChange={userType}/>
+      <form className={formClass} action="/" method="get" >
+        <label className={labelClass} htmlFor="firstName">First Name</label>
+        <input className={inputClass} type="text" id="firstName" name="firstName" placeholder="Baji" required autoFocus onChange={userType}/>
 
         <br/>
 
-        <label htmlFor="lastName">Last Name</label>
-        <input type="text" id="lastName" name="lastName" placeholder="Infokan" required onChange={userType}/>
+        <label className={labelClass} htmlFor="lastName">Last Name</label>
+        <input className={inputClass} type="text" id="lastName" name="lastName" placeholder="Infokan" required onChange={userType}/>
 
-        <button type="submit" onClick={submit}>Submit</button>
+        <button className={submitClass} onClick={submit}>Submit</button>
+        <button className={greetClass} onClick={greet}>Greet</button>
+        <button className={greetBajiClass} onClick={() => greetMe("Baji Kirim")}>Greet baji</button>
       </form>
-      <button onClick={greet}>Greet</button>
-      <button onClick={() => greetMe("Baji Kirim")}>Greet baji</button>
-    </>
   );
 };
 
