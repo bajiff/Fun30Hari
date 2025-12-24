@@ -1,14 +1,20 @@
-import {Button,Card,TeamMember,UserProfile} from "./components/Index";
 
 // ? Data Students
-import {students,members} from "../data/index.js";
+import {members} from "../data/index.js";
+import TeamMember from "./components/TeamMember.jsx";
 
 function App() {
-  console.log(members);
   return (
-    <section style={{ padding:"10px",gap:"9px",display:"flex",flexWrap:"wrap" }}>
-      {members.map((member) => <TeamMember key={member.id} id={member.id} name={member.name} role={member.role} img={member.img} isOnline={member.isOnline}/>)}
-    </section>
+  <>
+      <section className="flex flex-col items-center justify-around">
+
+      {
+      members.map(member => 
+        <TeamMember name={member.name} role={member.role} img={member.img} isOnline={member.isOnline}/>
+        )
+      }
+      </section>
+  </>
   );
 }
 
