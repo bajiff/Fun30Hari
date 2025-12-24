@@ -1,18 +1,24 @@
-// ! Day 3 Modules & Spread Operator
-// ?1. Spread Operator (...) Di Javascript lama, kalau mau gabung array kita pakai concat. Kalau mau copy object, ribet. Di ES6, kita punya ... (Spread).
-import {cart,user} from "./examples/examples.js";
+function UserProfile() {
+  const username = "Budi Doremi";
+  const avatar = "https://i.pravatar.cc/150";
 
-// * Contoh
-const oldBrands = ["Sony","Advan","Blackberry","Nokia","Polytron"];
-// const newBrands = ["Lenovo","HP","Infinix","Huwawei","Iphone",...oldBrands,];
-const newBrands = [...oldBrands,"Lenovo","HP","Infinix","Huwawei","Iphone"];
-// console.log(newBrands);
+  return (
+    <div class="card">
+      <img src={avatar} class="photo"/>
 
-const oldStudents = {"name":"Baji","age":19,"purpose":"Farmer & Rancher"};
-const newStudents = {...oldStudents,"name":"Meki","age":20,"purpose":"Hacker & Farmer"};
-// const newStudents = {"name":"Meki","age":20,"purpose":"Hacker & Farmer",...oldStudents};
-// console.log(newStudents);
+      <div class="info">
+        <h2 style="color: red;">
+          Profile: {username}
+        </h2>
+        <br/>
 
-const newCart = [...cart,"Mangga", "Pisang"];
-const updatedUser = {...user,"name":"Si Jago Code"};
-// console.log(newCart,updatedUser);
+        <p>Status: <b>Active</b></p>
+
+        <label for="input-bio">Bio:</label>
+        <input id="input-bio" type="text" placeholder="Tulis bio..."/>
+      </div>
+
+      <button onclick={() => alert('Saved!')}>Simpan</button>
+    </div>
+  )
+}
