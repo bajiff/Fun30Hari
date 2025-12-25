@@ -8,8 +8,8 @@ function App() {
   students;
   return (
     <>
-      <Home/>
       <Rumah/>
+      <Home/>
       <Counter/>
       <EventPractice/>
       <section style={{ padding:"10px",gap:"9px",display:"flex",flexWrap:"wrap" }}>
