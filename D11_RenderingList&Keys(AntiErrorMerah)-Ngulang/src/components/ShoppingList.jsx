@@ -1,11 +1,8 @@
 import { useState } from "react";
+import {products} from '../../data'
 
 const ShoppingList = () => {
-  const [items,setItems] = useState([
-    {"id":1, "name": "Pisang"},
-    {"id":2, "name": "Singkong"},
-    {"id":3, "name": "Ubi"},
-  ]);
+  const [items,setItems] = useState(products);
   
   const deleteItem = (itemId) => {
     setItems(items.filter(item => item.id !== itemId))
