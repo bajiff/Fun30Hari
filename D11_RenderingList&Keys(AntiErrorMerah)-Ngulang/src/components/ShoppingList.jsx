@@ -8,8 +8,9 @@ const ShoppingList = () => {
   ]);
   
   const deleteItem = (itemId) => {
-    setItems(items.map(item => item.id !== itemId))
-  }
+    setItems(items.filter(item => item.id !== itemId))
+  };
+
   return(
   <table className="table-fixed">
     <thead>
