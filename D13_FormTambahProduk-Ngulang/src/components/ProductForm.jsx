@@ -4,7 +4,8 @@ const ProductForm = () => {
   const formSubmit = (e) => {
     e.preventDefault();
 
-    console.log(name,price,category,stock)
+    const data = {name,price,category,stock}
+    console.log(data)
   };
   
   const [name, setName] = useState("");
