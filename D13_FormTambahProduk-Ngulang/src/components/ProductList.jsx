@@ -1,6 +1,7 @@
 import { useState } from "react";
 import {products} from "../../data";
 const ProductList = () => {
+
   const [localProducts, setLocalProducts] = useState(products);
 
   const [showTable, setShowTable] = useState(true);

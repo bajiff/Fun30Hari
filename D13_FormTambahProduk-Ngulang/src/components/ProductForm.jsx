@@ -1,75 +1,53 @@
 import { useState } from "react";
 
 const ProductForm = () => {
-  const [name,setName] = useState("");
-  const [price,setPrice] = useState(0);
-  const [category,setCategory] = useState("");
-  const [stock,setStock] = useState(0);
-
-  const submitHandler = (e) => {
+  const formSubmit = (e) => {
     e.preventDefault();
 
-    const data = {name,price,category,stock};
-    
-    console.log(data);
-  }
+    console.log(name,price,category,stock)
+  };
+  
+  const [name, setName] = useState("");
+  const [price, setPrice] = useState(0);
+  const [category, setCategory] = useState("");
+  const [stock, setStock] = useState(0);
+  
+  const formStyle = `grid grid-cols-1 md:grid-cols-2 py-8 px-2 w-lg rounded mt-10 bg-red-400 gap-3 border-2`;
 
-  const buttonCondition = (name === "" || category === "" || price <= 0);
+  const labelStyle = `p-2 text-black font-bold`;
 
-  const formClass = `grid grid-cols-2 mx-auto rounded my-10 gap-2 max-w-xl bg-gray-700 text-white`
-
-  const sectionClass = `p-5`;
-
-  const inputClass = `border-2  p-1 rounded border-indigo-600 active:border-yellow-400`;
-
-  const selectClass = `bg-green-600 rounded`
-
-  const buttonClass = `px-5 rounded  border-2 bg-green-600 hover:bg-green-700 disabled:bg-green-900 disabled:cursor-not-allowed`
+  const inputStyle = `border rounded p-2 mx-5 mb-2`;
+  
+  const submitButton = (nameButton,priceButton, stockButton) => { 
+    if (nameButton === "" || priceButton < 1) return `select-none rounded bg-red-600 px-3 border-2 font-bold`;
+    if (priceButton < 1) return `select-none rounded bg-red-600 px-3 border-2 font-bold`;
+    if (stockButton < 1) return `select-none rounded bg-red-600 px-3 border-2 font-bold`;
+  return `select-none rounded bg-green-600 px-3 border-2 font-bold`
+  };
 
   return (
-    <form onSubmit={submitHandler} className={formClass}>
-      <section className={sectionClass}>
-        <label htmlFor="name">
-          Name
-        </label>
-        <input className={inputClass} type="text" id="name" name="name" value={name} onChange={e => setName(e.target.value)} placeholder="Baji Ajalah"   autoFocus required />
-      </section>
-      
-      <section className={sectionClass}>
-        <label htmlFor="price">
-          Price
-        </label>
-        <input className={inputClass} type="number" id="price" name="price" value={price} onChange={e => setPrice(Number(e.target.value))} placeholder="0"   required />
-      </section>
-      
-      <section className={sectionClass}>
-        <label htmlFor="category">
-          Category
-        </label>
-        <select className={selectClass} name="category" id="category" value={category} onChange={e => setCategory(e.target.value)} required>
-          <option value="">Pilih Category</option>
-          <option value="Food">Seblak</option>
-          <option value="Food">Ketoprak</option>
-          <option value="Food">Martabak Legit</option>
-          <option value="Food">Martabak Ramona</option>
-          <option value="Drink">Pop Es Tawuran Buyut</option>
-          <option value="Drink">Pop Es Tawuran Bedulan</option>
-          <option value="Drink">Matcha</option>
+    <section className="flex justify-center">
+      <form className={formStyle} action="/" onSubmit={formSubmit}>
+          <label className={labelStyle} htmlFor="name">Name</label>
+          <input className={inputStyle} type="text" name="name" id="name" value={name} onChange={e => setName(e.target.value)} required autoFocus/>
+
+          <label className={labelStyle} htmlFor="price">Price</label>
+          <input className={inputStyle} type="number" name="price" id="price" value={price} onChange={e => setPrice(e.target.value)} required />
+
+          <label className={labelStyle} htmlFor="category">Category</label>
+        <select name="category" id="category" value={category} onChange={e => setCategory(e.target.value)}>
+          <option value="">Pilih</option>
+          <option value="Physical">Physical</option>
+          <option value="Magical">Magical</option>
+          <option value="Software">Software</option>
         </select>
-      </section>
-
-      <section className={sectionClass}>
-        <label htmlFor="stock">
-          Stock
-        </label>
-        <input className={inputClass} type="number" name="stock" id="stock" value={stock} onChange={e => setStock(Number(e.target.value))} required />
-      </section>
-
-      <section className={sectionClass}>
-        <button className={buttonClass} disabled={buttonCondition}>Submit</button>
-      </section>
-
-    </form>
+        
+          <label className={labelStyle} htmlFor="stock">Stock</label>
+          <input className={inputStyle} type="number" name="stock" id="stock" value={stock} onChange={e => setStock(e.target.value)} required />
+        
+        <button className={submitButton(name,price,stock)} disabled={name === "" || price < 1 || stock < 1 }>Submit</button>
+      </form>
+    </section>
   );
 };
 
