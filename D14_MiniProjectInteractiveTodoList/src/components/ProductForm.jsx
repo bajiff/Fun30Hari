@@ -47,7 +47,7 @@ const ProductForm = () => {
           Category
         </label>
         <select className={selectClass} name="category" id="category" value={category} onChange={e => setCategory(e.target.value)} required>
-          <option value="">Pilih Category</option>
+          <option>Pilih Category</option>
           <option value="Food">Seblak</option>
           <option value="Food">Ketoprak</option>
           <option value="Food">Martabak Legit</option>

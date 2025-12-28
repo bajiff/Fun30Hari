@@ -1,5 +1,4 @@
-import {Button,Card,TeamMember,UserProfile,Counter, EventPractice, Rumah,ProductForm, Products, ShoppingList, ProductList} from "./components/Index";
-import Home from "./components/Home.jsx";
+import {Button,Card,TeamMember,UserProfile,Counter, EventPractice, Rumah,ProductForm, Products, ShoppingList, ProductList, TodoList, Home} from "./components/Index";
 
 // ? Data Students
 import {students,members} from "../data/index.js";
@@ -8,6 +7,7 @@ function App() {
   students;
   return (
     <>
+      <TodoList/>
       <ProductForm/>
       <ProductList/>
       <ShoppingList/>

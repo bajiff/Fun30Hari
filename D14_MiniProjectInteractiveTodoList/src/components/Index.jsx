@@ -11,5 +11,7 @@ import Rumah from "./Rumah";
 import Saklar from "./Saklar";
 import ProductList from "./ProductList"
 import ShoppingList from "./ShoppingList";
+import Home from "./Home"
+import TodoList from "./TodoList"
 
-export {Button,Card,UserProfile,TeamMember,Counter, EventPractice, Lampu,ProductForm, Products, Rumah, Saklar, ShoppingList,ProductList};
+export {Button,Card,UserProfile,TeamMember,Counter, EventPractice, Lampu,ProductForm, Products, Rumah, Saklar, ShoppingList,ProductList, TodoList, Home};
