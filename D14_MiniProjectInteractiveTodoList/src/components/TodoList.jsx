@@ -1,82 +1,77 @@
-import { useState } from "react"
-import {initialTodos} from '../../data';
+import { useState } from 'react';
+import {initialTodos} from '../../data'
 
 const TodoList = () => {
-  const [name, setName] = useState("");
+  const [text, setText] = useState("");
   const [todoList,setTodoList] = useState(initialTodos);
-
-  const addNote = () => {
-
-    if (name === "") {
-      return  "di isi dulu";
-    };
+  
+  
+  const addTodo = (e) => {
+    e.preventDefault();
     
+    console.log(text);
     const newTodo = {
       id: Date.now(),
-      text: name,
+      text: text,
       completed: false
     };
-    setTodoList([...todoList, newTodo]);
-    setName("");
-  }
-  
-  const toggleTodo = (todoId) => {
-    todoList.map(todo => {
-      if (todo.id === todoId){
-        return {...todo, completed: !todo.completed};
-      }
-      return todo;
-    });
+    setTodoList([...todoList, newTodo])
+    setText("")
   };
   
-  const deleteTodo = (id) => {
-    setTodoList(todoList.filter(todo => todo.id !== id))
-  }
+  const checkboxToggler = (todoId) => {
+    setTodoList(todoList.map(todo => {
+      if (todo.id === todoId) return {...todo, completed: !todo.completed};
+      return todo;
+    }));
+  };
   
+  const deleteTodo = (todoId) => {
+
+    if (confirm("Yakin mau Hapus?")) {
+    return setTodoList(todoList.filter(todo => todo.id !== todoId))
+    }
+
+    return false
+  }
   return (
-  <section className='flex flex-col gap-4  justify-center items-center'>
+    <section className={`flex items-center justify-center mt-10`}>
+      <section className={`grid grid-cols-1 w-xl border-2 rounded-2xl px-15 py-10 `}>
 
-      <section className='w-xl gap-3 p-5 mt-10 border-2 rounded-2xl'>
-
-      <h1 className='text-center mb-8 text-2xl'>Baji To Do List</h1>
-
-      <form className='grid grid-cols-1 rounded border-gray-500' action="/" onSubmit={addNote}>
-
-        <input className='rounded border-2 w-md mx-auto my-5 p-2' type="text" name="input" id="input" placeholder="Ketik sesuatu dan tekan enter" value={name} onChange={e => setName(e.target.value)} required autoFocus/>
-
-          <section className="flex justify-center">
-            <button className="mb-5 p-2 rounded bg-green-400 hover:bg-green-500 transition-all duration-300" disabled={name === "" ? true : false}>Tambah</button>
-          </section>
-
-        <table className='table px-2 gap-4'>
-          <thead className='table-header-group text-center bg-blue-400 '>
-            <tr >
-              <th className='text-center bg-green-400'>No</th>
-              <th className='text-center bg-green-400'>Description</th>
-              <th className='text-center bg-red-400' colSpan={2}>Action</th>
+        <h1 className={`text-center text-3xl mb-3`}>Baji Todo List</h1>
+        <form className='grid' action="/" onSubmit={addTodo}>
+          <input className={`border my-4 rounded px-2 py-1 text-left`} type="text" name="text" id="text" placeholder='Ketik sesuatu dan enter' value={text} onChange={e => setText(e.target.value)} autoFocus/>
+          <button className={`rounded bg-green-500 ${text === "" ? "bg-green-800 cursor-not-allowed" : ""} transition-all duration-300 `} type="button" disabled={text === ""}>Save</button>
+        </form>
+        <table className={` mt-6`}>
+          <thead>
+            <tr className={`py-2`}>
+              <th>ID</th>
+              <th>Text</th>
+              <th colSpan={2}>Action</th>
             </tr>
-          </thead >
-          <tbody className=" " >
+          </thead>
+          <tbody>
               {todoList.map(todo => (
-              <tr key={todo.id}>
-                <td className="p-4">{todo.id}</td>
+              <tr className={`py-2 mt-3`} key={todo.id}>
+                <td className={`py-2 mt-3`}>{todo.id}</td>
 
-                <td className={`p-4 ${todo.completed ? "line-through" : ""}`}>{todo.text}</td>
+                <td className={`${todo.completed ? "line-through" : ""}`}>{todo.text}</td>
 
-                <td><input className={`bg-green-500`} type="checkbox" name="checkbox" id="checkbox" checked={todo.completed} onChange={() => toggleTodo(todo.id)}/></td>
+                <td className={`py-2 mt-3`}>
+                  <input type="checkbox" name="completed" id="completed" checked={todo.completed} onChange={() => checkboxToggler(todo.id)} />
+                </td>
 
-                  {/* Delete button udah done */}
-                <td className="p-4"><button onClick={() => deleteTodo(todo.id)} className="bg-red-500 px-2 py-1">Delete</button></td>
-
+                <td>
+                  <button className={`bg-red-500 px-4 py-1 rounded`} onClick={() => deleteTodo(todo.id)} >Delete</button>
+                  </td>
               </tr>
               ))}
           </tbody>
         </table>
-      </form>
       </section>
-
-  </section>
-  );
+    </section>
+  )
 }
 
 export default TodoList;
