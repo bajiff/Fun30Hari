@@ -5,6 +5,7 @@ const TodoList = () => {
   const [text, setText] = useState("");
   const [todoList,setTodoList] = useState(initialTodos);
   
+  const sisaTugas = todoList.filter(todo => !todo.completed).length
   
   const addTodo = (e) => {
     e.preventDefault();
@@ -69,6 +70,7 @@ const TodoList = () => {
               ))}
           </tbody>
         </table>
+        <h1 className={`text-center mt-5`}>Sisa tugas tinggal {sisaTugas}</h1>
       </section>
     </section>
   )
