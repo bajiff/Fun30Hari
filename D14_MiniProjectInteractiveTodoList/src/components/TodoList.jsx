@@ -42,7 +42,7 @@ const TodoList = () => {
         <h1 className={`text-center text-3xl mb-3`}>Baji Todo List</h1>
         <form className='grid' action="/" onSubmit={addTodo}>
           <input className={`border my-4 rounded px-2 py-1 text-left`} type="text" name="text" id="text" placeholder='Ketik sesuatu dan enter' value={text} onChange={e => setText(e.target.value)} autoFocus/>
-          <button className={`rounded bg-green-500 ${text === "" ? "bg-green-800 cursor-not-allowed" : ""} transition-all duration-300 `} type="button" disabled={text === ""}>Save</button>
+          <button className={`rounded bg-green-500 ${text === "" ? "bg-green-800 cursor-not-allowed" : ""} transition-all duration-300 `} disabled={text === ""}>Save</button>
         </form>
         <table className={` mt-6`}>
           <thead>
@@ -60,7 +60,7 @@ const TodoList = () => {
                 <td className={`${todo.completed ? "line-through" : ""}`}>{todo.text}</td>
 
                 <td className={`py-2 mt-3`}>
-                  <input type="checkbox" name="completed" id="completed" checked={todo.completed} onChange={() => checkboxToggler(todo.id)} />
+                  <input type="checkbox" name="completed" checked={todo.completed} onChange={() => checkboxToggler(todo.id)} />
                 </td>
 
                 <td>
