@@ -5,7 +5,7 @@
   "type": "module",
   "main": "app",
   "scripts": {
-    "dev": "vite",
+    "start": "vite",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"

@@ -1,43 +1,34 @@
-📅 Hari 14: Mini Project #2 - Interactive Todo List
-Selamat datang di akhir Minggu ke-2! 🎉 Hari ini kita akan menggabungkan SEMUA yang sudah kamu pelajari:
+📝 Tugas Hari 15: The Lifecycle Lab
+Kita akan buktikan teori di atas dengan mata kepala sendiri. Kita buat simulasi "Chat Room".
 
-Array State (CRUD)
+Instruksi:
 
-Event Handling
+Buat file LifecyclePractice.jsx.
 
-Controlled Form (Input)
+Di dalamnya, buat komponen ChatRoom (Child).
 
-Conditional Rendering (Coret yang sudah selesai)
+Punya state pesan (string).
 
-Misi Hari Ini: Buatlah aplikasi "Catatan Belanja / Todo List" yang berfungsi penuh.
+Mounting: Saat muncul, console.log("📡 Connected to Server").
 
-Fitur Wajib:
+Updating: Saat ngetik pesan, update judul tab browser (document.title = pesan).
 
-Input Data: Ada form input teks dan tombol "Tambah".
+Unmounting: Saat komponen hilang, console.log("❌ Disconnected from Server").
 
-Menampilkan List: Data yang diinput muncul di bawahnya.
+Di komponen utama (LifecyclePractice - Parent):
 
-Hapus Data: Tiap item punya tombol hapus (X).
+Buat tombol "Buka Chat" / "Tutup Chat".
 
-Fitur Ceklis (Selesai):
+Gunakan Conditional Rendering (showChat && <ChatRoom />) untuk memunculkan/menghilangkan komponen anak.
 
-Tiap item bisa diklik / ada checkbox.
+Tujuan: Buka Console Browser (F12).
 
-Jika diklik, teksnya jadi dicoret (line-through) dan warnanya memudar, tapi TIDAK DIHAPUS.
+Klik "Buka Chat" -> Harus muncul log "Connected".
 
-Clue State: Data todolist harus berupa object: { id: 1, text: "Beli Telur", completed: false }.
+Ketik sesuatu -> Judul tab browser harus berubah.
 
-Info: Tampilkan jumlah tugas yang belum selesai (Misal: "Sisa tugas: 3").
+Klik "Tutup Chat" -> Harus muncul log "Disconnected".
 
-Bocoran Logic "Coret / Toggle Completed": Sama seperti fitur hapus, kita pakai .map untuk update data.
+⚠️ Catatan Penting: Di mode development (npm run dev), React 18 menjalankan useEffect 2 KALI untuk testing (Strict Mode). Jadi kalau log "Connected" muncul 2x, itu normal. Abaikan saja.
 
-JavaScript
-
-const toggleTodo = (id) => {
-  setTodos(todos.map(todo => 
-    todo.id === id ? { ...todo, completed: !todo.completed } : todo
-  ));
-};
-Silakan kerjakan di satu file TodoList.jsx. Tunjukkan padaku bahwa kamu layak masuk ke Minggu 3 (Data Fetching & API)! 🔥
-
-Semangat coding! 🚀
+Silakan bereksperimen! Saya tunggu hasil lab-nya. 🧪👨‍🔬

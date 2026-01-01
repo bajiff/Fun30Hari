@@ -1,8 +1,8 @@
-import {TodoList} from './components/Index.jsx';
+import {LifecyclePractice} from './components/Index.jsx';
 
 const App = () => {
   return (
-      <TodoList/>
+  <LifecyclePractice/>
   );
 };
 
