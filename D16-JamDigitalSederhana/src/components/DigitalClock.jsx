@@ -5,15 +5,17 @@ const DigitalClock = () => {
 
   useEffect(() => {
     const timerID = setInterval(() => {
-      console.log("Timer dinyalakan")
-      setDate(date);
+      console.log("Berjalan");
+      setDate(new Date);
     }, 1000);
+    
 
     return () => {
       clearInterval(timerID);
       console.log("Timer dimatikan");
     };
   },[]);
+  
 
   return (
     <section>
