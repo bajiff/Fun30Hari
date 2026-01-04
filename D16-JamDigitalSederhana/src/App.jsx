@@ -1,4 +1,4 @@
-import {LifecyclePractice} from './components/Index.jsx';
+import {LifecyclePractice} from './components/Index'
 
 const App = () => {
   return (
