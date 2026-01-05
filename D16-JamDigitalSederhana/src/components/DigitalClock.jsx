@@ -6,7 +6,7 @@ const DigitalClock = () => {
   useEffect(() => {
     const timerID = setInterval(() => {
       console.log("Berjalan");
-      setDate(new Date);
+      setDate(new Date());
     }, 1000);
     
 
