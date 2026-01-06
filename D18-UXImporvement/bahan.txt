@@ -1,0 +1,4 @@
+    <section className={`text-center mb-10`}>
+      <p>Lampu: {isOn ? "Hidup" : "Mati"}</p>
+      <button type="button" className={`px-4 ${isOn ? 'bg-red-500' : 'bg-green-500'} rounded-2xl`} onClick={() => setIsOn(prev => !prev)}>Turn {isOn ? "OFF" : "ON"}</button>
+    </section>
