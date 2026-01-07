@@ -1,33 +1,10 @@
 // ? Ini Component UserList
-import { useEffect, useState } from "react";
 import {TableBodySekeleton, TableHeadSekeleton} from "./Index";
+import useFetch from "../hooks/useFetch";
 
 const UserList = () => {
-  const [dataAPI, setDataAPI] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
-
-    const getAPI = async () => {
-      try {
-        setLoading(true)
-        const response = await fetch("https://jsonplaceholder.typicode.com/users");
-        if (!response.ok){
-          throw new Error("Failed to fetch API 400/500");
-        }
-        const json = await response.json();
-        setDataAPI(json);
-      } catch (error) {
-        setError(error.message);
-      } finally {
-        setLoading(false);
-      };
-    };
-    
-
-  useEffect(() => {
-    getAPI();
-  },[]);
   
+  const {data: dataAPI,loading,error,refetch: getAPI} = useFetch("https://jsonplaceholder.typicode.com/users");
 
   if (error) {
     return (
