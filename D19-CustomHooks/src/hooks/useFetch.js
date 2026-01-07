@@ -8,6 +8,7 @@ const useFetch = (url) => {
   
   const refetch = async () => {
     try {
+      setError(null);
       setLoading(true);
       const response = await fetch(url);
       if (!response.ok) {
