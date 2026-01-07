@@ -1,3 +1,5 @@
-import UserList from './UserList'
+import TableBodySekeleton from './TableBodySekeleton'
+import TableHeadSekeleton from './TableHeadSekeleton'
+import UserList from './UserList';
 
-export {UserList};
+export {TableBodySekeleton, TableHeadSekeleton, UserList};
