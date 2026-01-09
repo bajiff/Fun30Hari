@@ -1,7 +1,7 @@
 {
-  "name": "d3-modulesandspreadoperator",
+  "name": "d20-reactrouterdom",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
   "main": "app",
   "scripts": {
@@ -14,6 +14,7 @@
     "@tailwindcss/vite": "^4.1.18",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
+    "react-router-dom": "^7.12.0",
     "tailwindcss": "^4.1.18"
   },
   "devDependencies": {
