@@ -1,6 +1,5 @@
-import { UserList } from './components/Index'
-import { HomePage, AboutPage, NotFound } from "./pages/Index";
-import { Routes, Route, Link } from 'react-router-dom';
+import { HomePage, AboutPage, NotFound, UserList } from "./pages/Index";
+import { Routes, Route, NavLink} from 'react-router-dom';
 
 const App = () => {
   return (
@@ -8,22 +7,22 @@ const App = () => {
     <nav className=''>
         <ul className='flex items-center justify-between gap-2 w-lg mt-10 bg-red-200 max-w-xl py-2 mx-auto '>
           <li>
-            <Link className='rounded border shadow bg-green-400 px-3 py-2' to="/">Home</Link>
+            <NavLink className={({isActive}) => `rounded border shadow px-3 py-2 ${isActive ? "bg-green-400 " : "bg-red-400"}`} to="/">Home</NavLink>
           </li>
           <li>
-            <Link className='rounded border shadow bg-green-400 px-3 py-2' to="/users">Users</Link>
+            <NavLink className={({isActive}) => `rounded border shadow px-3 py-2 ${isActive ? "bg-green-400 " : "bg-red-400"}`} to="/users">Users</NavLink>
           </li>
           <li>
-            <Link className='rounded border shadow bg-green-400 px-3 py-2' to="/about">About</Link>
+            <NavLink className={({isActive}) => `rounded border shadow px-3 py-2 ${isActive ? "bg-green-400 " : "bg-red-400"}`} to="/about">About</NavLink>
           </li>
         </ul>
     </nav>
 
     <Routes>
-      <Route path='/' element={<HomePage/>}/>
-      <Route path='/users' element={<UserList/>}/>
-      <Route path='/about' element={<AboutPage/>}/>
-      <Route path='*' element={<NotFound/>}/>
+        <Route path='/' element={<HomePage/>}/>
+        <Route path='/users' element={<UserList/>}/>
+        <Route path='/about' element={<AboutPage/>}/>
+        <Route path='*' element={<NotFound/>}/>
     </Routes>
   </>
   );
