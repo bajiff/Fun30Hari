@@ -1,81 +1,42 @@
-📅 Hari 20: React Router (Pindah Halaman) 🚦
-Selamat datang di Hari 20. Aplikasi kita sejauh ini cuma satu halaman (Single Page dalam arti harfiah). Padahal SPA (Single Page Application) itu maksudnya satu file HTML, tapi isinya seolah-olah banyak halaman.
+📅 Hari 21: Project Mingguan #3 - "Pokedex / Movie Finder" 🎬
+Selamat datang di akhir Minggu 3! Minggu ini kita sudah belajar:
 
-Kita butuh React Router.
+Lifecycle (useEffect).
 
-Bayangkan skenario ini:
+Fetching Data (fetch / API).
 
-Kamu buka /users -> Muncul User List.
+Custom Hooks (useFetch).
 
-Kamu klik nama "Leanne Graham".
+Routing (react-router-dom).
 
-URL berubah jadi /users/1 -> Muncul Detail User tersebut.
+Sekarang kita gabungkan semuanya dalam satu aplikasi Multi-page Real World.
 
-React tidak punya fitur ini secara bawaan. Kita harus install library standar industri: react-router-dom.
+Misi Project: Buat aplikasi "Pencari Film" (Movie Finder).
 
-🛠️ Tugas Hari 20: Setup Routing
-Langkah 1: Install Library Matikan server dulu (Ctrl + C), lalu ketik di terminal:
+API Gratis: Gunakan OMDB API (Daftar dulu dapat API Key gratis) atau gunakan API publik lain seperti Jikan (Anime).
 
-Bash
+Fitur Wajib:
 
-npm install react-router-dom
-Lalu jalankan lagi npm run dev.
+Halaman Home (/):
 
-Langkah 2: Setup Router di main.jsx (Bukan App.jsx) Kita harus membungkus seluruh aplikasi kita dengan BrowserRouter.
+Ada Input Search "Cari Judul Film...".
 
-JavaScript
+Saat disubmit, dia melakukan Fetch data ke API.
 
-// main.jsx
-import { BrowserRouter } from 'react-router-dom'
+Tampilkan hasil pencarian dalam bentuk Grid (Gambar Poster & Judul).
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>
-)
-Langkah 3: Bikin Navigasi di App.jsx Kita akan belajar 3 komponen utama:
+Gunakan Custom Hook useFetch yang sudah kamu buat!
 
-Routes & Route: Penunjuk jalan.
+Halaman Detail (/movie/:id): ⚠️ Ini Tantangan Baru
 
-Link: Pengganti tag <a> (biar gak refresh halaman).
+Saat poster film diklik, pindah ke halaman detail.
 
-Tugas Coding: Ubah App.jsx kamu menjadi seperti ini (silakan ketik manual biar paham):
+Di halaman ini, ambil ID film dari URL (kita akan belajar useParams besok sambil ngerjain ini).
 
-Buat komponen halaman sederhana (Home & About) di file terpisah atau di atas App.
+Fetch detail film berdasarkan ID tersebut (Sinopsis, Tahun, Rating).
 
-Gunakan Routes dan Route untuk mengatur:
+Navbar: Harus selalu muncul di atas untuk navigasi balik ke Home.
 
-/ menampilkan halaman Home.
+Persiapan Hari Ini: Coba daftar dulu API key di OMDB API atau cari API publik lain yang kamu suka. Kalau sudah dapat key-nya, besok kita mulai rakit!
 
-/users menampilkan UserList (yang sudah kamu buat).
-
-/about menampilkan halaman About (tulisan bebas).
-
-Buat Navbar sederhana di atasnya pakai <Link to="...">.
-
-Jangan pakai <a href="..."> ya!
-
-Contoh Struktur App.jsx:
-
-JavaScript
-
-import { Routes, Route, Link } from "react-router-dom";
-import UserList from "./components/UserList"; // Import komponenmu
-
-function App() {
-  return (
-    <>
-      <nav>
-        <Link to="/">Home</Link> | <Link to="/users">Users</Link> | <Link to="/about">About</Link>
-      </nav>
-
-      <Routes>
-        <Route path="/" element={<h1>Ini Home</h1>} />
-        <Route path="/users" element={<UserList />} />
-        {/* Tambah route About sendiri */}
-      </Routes>
-    </>
-  )
-}
-
-Silakan rakit navigasimu! Kalau berhasil, kamu bisa pindah-pindah halaman User ke Home tanpa loading putih (kedip). 🚀
+Siap untuk tantangan project besar ini? 🍿🎥

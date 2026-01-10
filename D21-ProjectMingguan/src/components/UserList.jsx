@@ -1,5 +1,5 @@
 // ? Ini Component UserList
-import {TableBodySekeleton, TableHeadSekeleton} from "./Index";
+import {TableBodySekeleton, TableHeadSekeleton} from ".";
 import useFetch from "../hooks/useFetch";
 
 const UserList = () => {

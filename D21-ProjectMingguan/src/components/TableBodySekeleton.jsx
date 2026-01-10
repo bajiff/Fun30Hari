@@ -19,10 +19,10 @@ const TableRow = () => {
 
 const TableBodySekeleton = () => {
   return (
-          <tbody>
-            <TableRow/>
-            <TableRow/>
-          </tbody>
+      <tbody>
+        <TableRow/>
+        <TableRow/>
+      </tbody>
     )
   }
 
