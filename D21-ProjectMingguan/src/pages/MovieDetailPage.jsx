@@ -1,4 +1,4 @@
-import React from 'react'
+// ? Ini Page MovieDetailPage
 
 const MovieDetailPage = () => {
   return (

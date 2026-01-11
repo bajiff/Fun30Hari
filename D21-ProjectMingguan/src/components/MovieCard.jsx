@@ -1,5 +1,4 @@
-import React from 'react'
-
+// ? Ini Component MovieCard
 const MovieCard = () => {
   return (
     <div>MovieCard</div>
