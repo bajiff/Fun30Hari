@@ -10,7 +10,7 @@ const HomePage = () => {
     try{
       setLoading(true);
       setError(null);
-      const response = await fetch(`https://www.omdbapi.com/?s=batman&apikey=${API_KEY}`)
+      const response = await fetch(`https://www.omdbapi.com/?apikey=${API_KEY}&s=batman`)
       if (!response.ok) {
         throw new Error("Waduh Error Cuy");
       };
