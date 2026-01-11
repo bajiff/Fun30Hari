@@ -31,6 +31,7 @@ const HomePage = () => {
     console.log(search);
     getAPI(search);
   }
+  console.log(dataAPI);
 
   if (error) {
     return (
@@ -58,21 +59,29 @@ const HomePage = () => {
           <button className="border rounded shadow text-white bg-green-500 hover:bg-green-600 active:bg-green-700 transition-all duration-200">Search</button>
         </form>
       </main>
-      <section>
-        <table>
+      <section className="flex items-center justify-center">
+        <table className="table border">
           <thead>
-            <tr>
-              <th>Makanan</th>
+            <tr className="border">
+              <th className="border px-5">imdbID</th>
+              <th className="border px-5">Poster</th>
+              <th className="border px-5">Title</th>
+              <th className="border px-5">Year</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td> 
-              </td>
-            </tr>
+            {dataAPI.map(data => {
+              return (
+                <tr className="text-center" key={data.imdbID}>
+                  <td className="border">{data.imdbID}</td>
+                  <td className="border"><img src={data.Poster} alt="Poster"/></td>
+                  <td className="border">{data.Title}</td>
+                  <td className="border">{data.Year}</td>
+                </tr>
+              )
+            })}
           </tbody>
         </table>
-
       </section>
     </>
   );
