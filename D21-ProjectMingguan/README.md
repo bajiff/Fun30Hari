@@ -1,5 +1,5 @@
 # React + Vite
-lagi bengbel dadi bli ngoding
+lagi bengel dadi bli ngoding, dan sekarang juga udah mendingan tapi biar streak nya ngga putus maka cuma nambahin readme aja hehew, tgl 14 lanjut ngoding lagi 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
