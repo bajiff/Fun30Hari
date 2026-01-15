@@ -8,6 +8,9 @@ const NavBar = () => {
             <NavLink className={({isActive}) => `rounded border shadow px-3 py-2 ${isActive ? "bg-green-400 " : "bg-red-400"}`} to="/">Home</NavLink>
           </li>
           <li>
+            <NavLink className={({isActive}) => `rounded border shadow px-3 py-2 ${isActive ? "bg-green-400 " : "bg-red-400"}`} to="/movie">Movie</NavLink>
+          </li>
+          <li>
             <NavLink className={({isActive}) => `rounded border shadow px-3 py-2 ${isActive ? "bg-green-400 " : "bg-red-400"}`} to="/users">Users</NavLink>
           </li>
           <li>
