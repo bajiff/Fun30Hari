@@ -20,7 +20,7 @@ const MovieDetailPage = () => {
         if (!response.ok){
           throw new Error("Waduh error coy");
         }
-        const json = response.json();
+        const json = await response.json();
         if (json.Response === "False"){
           throw new Error(json.Error || "Movie Not Found");
         };
@@ -35,7 +35,7 @@ const MovieDetailPage = () => {
   },[id])
   
   return (
-    <section className="flex items-center justify-center mt-10">
+    <section className="flex flex-col gap-10 items-center justify-center mt-10">
     {error && (
       <section>
         <h1>Waduh {error}</h1>
@@ -46,12 +46,18 @@ const MovieDetailPage = () => {
         <h1>Sabar Lagi Loading...</h1>
       </section>
     )}
-      <section>
+    {!error && !loading && (
+      <section className="rounded shadow-lg">
+      <img src={movie.Poster} alt={movie.Title} />
+      <div className="px-4 py4">
+        <p>{movie.Plot}</p>
+      </div>
         Judul Film {id}
         {movie && (
-          <h1>{movie}</h1>
+          <h1>{movie.Title}</h1>
         )}
       </section>
+    )}
     </section>
   )
 }
