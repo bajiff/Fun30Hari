@@ -1,7 +1,7 @@
 // ? Ini Page MovieDetailPage
 
 import { useEffect, useState } from "react";
-import { useAsyncError, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 const MovieDetailPage = () => {
   const {id} = useParams();
@@ -16,15 +16,41 @@ const MovieDetailPage = () => {
       try{
         setLoading(true);
         setError(null);
-        const response = await fetch(`${BASE_URL}?api_`)
+        const response = await fetch(`${BASE_URL}?apikey=${API_KEY}&i=${id}`);
+        if (!response.ok){
+          throw new Error("Waduh error coy");
+        }
+        const json = response.json();
+        if (json.Response === "False"){
+          throw new Error(json.Error || "Movie Not Found");
+        };
+        setMovie(json);
+      } catch (error) {
+        setError(error.message);
+      } finally {
+        setLoading(false);
       }
     }
-  })
+    fetchDetail();
+  },[id])
   
   return (
     <section className="flex items-center justify-center mt-10">
+    {error && (
+      <section>
+        <h1>Waduh {error}</h1>
+      </section>
+    )}
+    {loading && (
+      <section>
+        <h1>Sabar Lagi Loading...</h1>
+      </section>
+    )}
       <section>
         Judul Film {id}
+        {movie && (
+          <h1>{movie}</h1>
+        )}
       </section>
     </section>
   )
