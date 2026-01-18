@@ -42,7 +42,9 @@ const HomePage = () => {
                 <tr className="text-center" key={data.imdbID}>
                   <td className="border">{data.imdbID}</td>
                   <td className="border flex flex-col item-center">
-                    <img className="m-4 items-center" src={data.Poster} alt={data.Title}/>
+                    <Link className="cursor-pointer" target="_blank" to={`/movie/${data.imdbID}`}>
+                      <img className="m-4 items-center" src={data.Poster} alt={data.Title}/>
+                    </Link>
                     <Link to={`/movie/${data.imdbID}`} target="_blank">
                     <button className="border rounded shadow bg-green-500 px-4 py-2 mb-4">Detail</button>
                     </Link>
