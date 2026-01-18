@@ -1,16 +1,9 @@
 // ? Ini Page MovieDetailPage
-
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
+import useFetchMovieDetailPage from "../hooks/useFetchMovieDetailPage";
 
 const MovieDetailPage = () => {
-  const {id} = useParams();
-  const [movie, setMovie] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
-  const API_KEY = import.meta.env.VITE_IMDB_API_KEY;
-  const BASE_URL = import.meta.env.VITE_BASE_URL;
+  const {movie,loading,error} = useFetchMovieDetailPage();
 
   const getRatingColor = (rating) => {
     const score = parseFloat(rating);
@@ -22,28 +15,6 @@ const MovieDetailPage = () => {
     return "text-red-500";
   };
 
-  useEffect(() => {
-    const fetchDetail = async () => {
-      try{
-        setLoading(true);
-        setError(null);
-        const response = await fetch(`${BASE_URL}?apikey=${API_KEY}&i=${id}`);
-        if (!response.ok){
-          throw new Error("Waduh error coy");
-        }
-        const json = await response.json();
-        if (json.Response === "False"){
-          throw new Error(json.Error || "Movie Not Found");
-        };
-        setMovie(json);
-      } catch (error) {
-        setError(error.message);
-      } finally {
-        setLoading(false);
-      }
-    }
-    fetchDetail();
-  },[id])
   
   return (
     <section className="flex flex-col gap-10 items-center justify-center mt-10">
@@ -67,7 +38,7 @@ const MovieDetailPage = () => {
                 <p className="max-w-sm text-justify"><span className="text-xl font-bold">Plot:</span> {movie.Plot}</p>
                 <p className=" mt-2 "><span className="text-xl font-bold">Rating: </span><span className={`px-3 py-2 rounded ${getRatingColor(movie.imdbRating)}`}>{movie.imdbRating}</span></p>
                 <div className="mt-4 flex items-center justify-center">
-                      <Link className="text-center cursor-pointer my-4 px-2 py-1 rounded bg-red-500" to="/">
+                      <Link className="text-center cursor-pointer my-4 px-2 py-1 bg-red-500" to="/">
                       kembali
                       </Link>
                 </div>

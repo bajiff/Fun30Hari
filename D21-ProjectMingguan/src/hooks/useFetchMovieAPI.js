@@ -1,3 +1,4 @@
+// ? Ini custom hooks useFetchMovieAPI.js
 import {useState} from 'react'
 
 const useFetchMovieAPI = () => {
@@ -35,7 +36,7 @@ const useFetchMovieAPI = () => {
     console.log(search);
     getAPI(search);
   }
-  return {dataAPI,search,loading,error,formSubmit,setSearch, getAPI};
+  return {dataAPI,search,loading,error,formSubmit,setSearch, getAPI, API_KEY,BASE_URL};
 }
 
 export default useFetchMovieAPI;
