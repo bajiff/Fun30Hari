@@ -16,6 +16,9 @@ const NavBar = () => {
           <li>
             <NavLink className={({isActive}) => `rounded border shadow px-3 py-2 ${isActive ? "bg-green-400 " : "bg-red-400"}`} to="/about">About</NavLink>
           </li>
+          <li>
+            <NavLink className={({isActive}) => `rounded border shadow px-3 py-2 ${isActive ? "bg-green-400 " : "bg-red-400"}`} to="/product">Product</NavLink>
+          </li>
         </ul>
     </nav>
   )

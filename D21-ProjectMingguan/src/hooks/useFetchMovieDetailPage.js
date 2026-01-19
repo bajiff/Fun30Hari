@@ -33,6 +33,6 @@ const useFetchMovieDetailPage = () => {
     fetchDetail();
   },[id])
   return {id,movie,loading,error}
-}
+};
 
 export default useFetchMovieDetailPage;

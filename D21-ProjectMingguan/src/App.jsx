@@ -1,10 +1,8 @@
 // ? Ini App.jsx
-import {HomePage, AboutPage, NotFound, UserList } from "./pages/index";
-import {NavBar} from "./components/index"
-
+import {HomePage, AboutPage, NotFound, UserList, MovieDetailPage} from "./pages/index";
+import {NavBar, Product, DetailProducts, DetailUser } from "./components/index"
 
 import {Routes, Route} from 'react-router-dom';
-import MovieDetailPage from "./pages/MovieDetailPage";
 
 const App = () => {
   return (
@@ -14,9 +12,11 @@ const App = () => {
     <Routes>
         <Route path='/' element={<HomePage/>}/>
         <Route path='/users' element={<UserList/>}/>
-        <Route path='/users/:detailUser' element={<UserList/>}/>
+        <Route path='/users/:detailUser' element={<DetailUser/>}/>
         <Route path='/movie/:id' element={<MovieDetailPage/>}/>
         <Route path='/about' element={<AboutPage/>}/>
+        <Route path='/product' element={<Product/>}/>
+        <Route path='/product-detail' element={<DetailProducts/>}/>
         <Route path='*' element={<NotFound/>}/>
     </Routes>
   </>
