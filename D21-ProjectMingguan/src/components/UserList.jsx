@@ -42,7 +42,7 @@ const UserList = () => {
             {dataAPI.map(data => (
               <tr className="text-center" key={data.id}>
                 <td className="px-4 py-3 border">{data.id}</td>
-                <td className="px-4 py-3 border"><Link className="hover:underline transition-all duration-300" to={`/users/${data.name}`} target="_blank">{data.name}</Link></td>
+                <td className="px-4 py-3 border"><Link className="hover:underline transition-all duration-300" to={`/users/${data}`}  target="_blank">{data.name}</Link></td>
                 <td className="px-4 py-3 border">{data.username}</td>
                 <td className="px-4 py-3 border">{data.email}</td>
                 <td className="px-4 py-3 border">{data.address?.street ?? "-"}</td>

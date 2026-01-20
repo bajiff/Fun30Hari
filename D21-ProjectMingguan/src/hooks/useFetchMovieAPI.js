@@ -10,7 +10,7 @@ const useFetchMovieAPI = () => {
   const BASE_URL = import.meta.env.VITE_BASE_URL;
 
   const getAPI = async (keyword) => {
-    try{
+    try {
       if (!keyword) return;
       setLoading(true);
       setError(null);
