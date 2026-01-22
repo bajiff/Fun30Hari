@@ -2,11 +2,15 @@
 import {HomePage, AboutPage, NotFound, UserList, MovieDetailPage} from "./pages/index";
 import {NavBar, Product, DetailProducts, DetailUser } from "./components/index"
 
+import { ThemeContext } from "./context";
+
 import {Routes, Route} from 'react-router-dom';
+import { useState } from "react";
 
 const App = () => {
+  const [theme, setTheme] = useState("light");
   return (
-  <>
+  <ThemeContext.Provider value={{theme,setTheme}}>
     <NavBar/>
 
     <Routes>
@@ -19,7 +23,7 @@ const App = () => {
         <Route path='/product-detail' element={<DetailProducts/>}/>
         <Route path='*' element={<NotFound/>}/>
     </Routes>
-  </>
+  </ThemeContext.Provider>
   );
 };
 
