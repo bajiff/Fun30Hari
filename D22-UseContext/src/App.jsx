@@ -10,20 +10,13 @@ import { useState } from "react";
 const App = () => {
   const [theme, setTheme] = useState("light");
   return (
-  <ThemeContext.Provider value={{theme,setTheme}}>
-    <NavBar/>
-
-    <Routes>
-        <Route path='/' element={<HomePage/>}/>
-        <Route path='/users' element={<UserList/>}/>
-        <Route path='/users/:idUser' element={<DetailUser/>}/>
-        <Route path='/movie/:id' element={<MovieDetailPage/>}/>
-        <Route path='/about' element={<AboutPage/>}/>
-        <Route path='/product' element={<Product/>}/>
-        <Route path='/product-detail' element={<DetailProducts/>}/>
-        <Route path='*' element={<NotFound/>}/>
-    </Routes>
-  </ThemeContext.Provider>
+    <ThemeContext.Provider value={{theme,setTheme}}>
+      <div className={`flex flex-col justify-center items-center min-h-screen transition-color duration-300 ${theme === "dark" ? "bg-slate-800" : "bg-gray-100"}`}>
+        <h1 className={`font-bold text-3xl ${theme === "dark" ? "text-white" : "text-slate-800"}`}>Ilmu Perubahan Theme tanpa props 🌗</h1>
+      </div>
+    
+      
+    </ThemeContext.Provider>
   );
 };
 
