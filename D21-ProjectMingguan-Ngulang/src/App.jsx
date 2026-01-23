@@ -1,8 +1,4 @@
 // ? Ini App.jsx
-import {HomePage, AboutPage, NotFound, UserList, MovieDetailPage} from "./pages/index";
-import {NavBar, Product, DetailProducts, DetailUser } from "./components/index"
-
-import {Routes, Route} from 'react-router-dom';
 import {Card, ToggleTheme} from "./components/ui"; 
 
 import { ThemeContext } from "./context";
