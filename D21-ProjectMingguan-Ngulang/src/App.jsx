@@ -6,15 +6,15 @@ import {Routes, Route} from 'react-router-dom';
 import {Card, ToggleTheme} from "./components/ui"; 
 
 import { ThemeContext } from "./context";
-import { useContext } from "react";
+import { useState } from "react";
 
 const App = () => {
-  const {theme, setTheme} = useContext("light");
+  const [theme, setTheme] = useState("light");
 
   return (
     <ThemeContext.Provider value={{theme,setTheme}}>
-      <section className={`flex flex-col justify-center items-center min-h-screen transition-colors ${theme === "light" ? "bg-white" : "bg-slate-800 text-white"}`}>
-        <h1>Magic Theme</h1>
+      <section className={`flex flex-col justify-center items-center min-h-screen transition-colors gap-6 ${theme === "light" ? "bg-white" : "bg-slate-800 text-white"}`}>
+        <h1 className="text-3xl">Magic Theme</h1>
         <Card/>
         <ToggleTheme/>
       </section>
