@@ -6,7 +6,8 @@ import UserList from './UserList';
 import Product from './Product'
 import DetailProducts from './DetailProducts'
 import DetailUser from './DetailUser'
+import Card from './Card';
 
 
 
-export {NavBar,TableBodySekeleton,TableHeadSekeleton,UserList,Product, DetailProducts, DetailUser};
+export {NavBar,TableBodySekeleton,TableHeadSekeleton,UserList,Product, DetailProducts, DetailUser, Card};
