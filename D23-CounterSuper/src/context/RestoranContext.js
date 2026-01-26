@@ -1,4 +1,4 @@
-import { createContext } from "react";
+import { createContext,  useReducer } from "react";
 
 // ? Inisialisasi data
 const initialState = {
@@ -7,7 +7,7 @@ const initialState = {
 };
 
 // ? Bikin Logika Bisnis
-const restoranReducer = (state,action) {
+const restoranReducer = (state,action) => {
   switch (action.type) {
     case "BELI_TELUR":
       return {...state, stokTelur : state.stokTelur + 1};
@@ -23,5 +23,15 @@ const restoranReducer = (state,action) {
 // ? Create Contextnya atau wadahnya
 export const RestoranContext = createContext();
 
+// ? Create Providernya atau pembungkusnya
+export const RetoranProvider = ({children}) => {
+  const [state, dispatch] = useReducer(restoranReducer,initialState);
+
+  return (
+    <RestoranContext.Provider value={{state,dispatch}}>
+      {children}
+    </RestoranContext.Provider>
+  )
+};
 
 
