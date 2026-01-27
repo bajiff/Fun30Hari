@@ -1,5 +1,6 @@
 // ? Ini App.jsx
 import {Card, ToggleTheme} from "./components/ui"; 
+import DompetBos from "./components/ui/DompetBos";
 
 import { ThemeContext } from "./context";
 import { useState } from "react";
@@ -13,6 +14,7 @@ const App = () => {
         <h1 className="text-3xl">Magic Theme</h1>
         <Card/>
         <ToggleTheme/>
+        <DompetBos/>
       </section>
     </ThemeContext.Provider>
   );
