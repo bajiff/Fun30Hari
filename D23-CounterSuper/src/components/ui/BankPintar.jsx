@@ -15,6 +15,8 @@ const BankPintar = () => {
       
       <button onClick={() => dispatch({type: "TARIK", payload: inputAngka})}>Tarik</button>
 
+      <button onClick={() => dispatch({type: "BUNGA", payload: inputAngka})}>Bunga</button>
+
       <button onClick={() => dispatch({type: "RESET"})}>Reset Saldo</button>
     </section>
   )
