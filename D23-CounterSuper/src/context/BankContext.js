@@ -3,7 +3,10 @@ export const bankReducer = (state,action) => {
     case "SETOR":
       return state + action.payload;
     case "TARIK":
-      if (state === 0) return state;
+      if (state < action.payload) {
+        alert("Saldonya Kurang Bos")
+      return state;
+      }
       return state - action.payload;
     case "BUNGA":
       return state + (state * 10/100);

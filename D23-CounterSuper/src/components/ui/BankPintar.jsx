@@ -9,13 +9,13 @@ const BankPintar = () => {
     <section>
       <h1>Saldo Sekarang {state}</h1>
       <label htmlFor="inputAngka">Inputkan Angka</label>
-      <input type="number" name="inputAngka" id="inputAngka" value={inputAngka} onChange={(e) => setInputAngka(parseInt(e.target.value))} />
+      <input type="number" name="inputAngka" id="inputAngka" value={inputAngka} onChange={(e) => setInputAngka(parseInt(e.target.value) || 0)} />
       
       <button onClick={() => dispatch({type: "SETOR", payload:inputAngka})}>Tambah</button>
       
       <button onClick={() => dispatch({type: "TARIK", payload: inputAngka})}>Tarik</button>
 
-      <button onClick={() => dispatch({type: "BUNGA", payload: inputAngka})}>Bunga</button>
+      <button onClick={() => dispatch({type: "BUNGA"})}>Bunga</button>
 
       <button onClick={() => dispatch({type: "RESET"})}>Reset Saldo</button>
     </section>
