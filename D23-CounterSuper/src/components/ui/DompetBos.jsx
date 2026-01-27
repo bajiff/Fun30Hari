@@ -12,7 +12,7 @@ const DompetBos = () => {
       
       <button onClick={() => teriak({type:"RESET_SALDO"})}>Rampok Dompet Bos</button>
     </section>
-  )
-}
+  );
+};
 
 export default DompetBos;
