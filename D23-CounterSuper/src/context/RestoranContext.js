@@ -1,37 +1,30 @@
+// ? Ini RestoranContext.js
 import { createContext,  useReducer } from "react";
 
-// ? Inisialisasi data
 const initialState = {
-  stokTelur:0,
-  statusToko:"BUKA"
+  stokTelur: 0,
+  statusToko:"BUKA",
 };
 
-// ? Bikin Logika Bisnis
-const restoranReducer = (state,action) => {
+const restoranReducer = (state, action) => {
   switch (action.type) {
-    case "BELI_TELUR":
-      return {...state, stokTelur : state.stokTelur + 1};
+    case "TAMBAH_TELUR":
+      return {...state, stokTelur: state.stokTelur + 1};
     case "MASAK_TELUR":
-      return {...state, stokTelur : state.stokTelur - 1};
-    case "TUTUP_TOKO":
-      return {...state, statusToko: state.statusToko = "TUTUP"};
+      if (state.stokTelur === 0) return state;
+      return {...state, stokTelur: state.stokTelur - 1};
     default:
       return state;
   };
 };
 
-// ? Create Contextnya atau wadahnya
 export const RestoranContext = createContext();
 
-// ? Create Providernya atau pembungkusnya
-export const RetoranProvider = ({children}) => {
+export const RestoranProvider = ({children}) => {
   const [state, dispatch] = useReducer(restoranReducer,initialState);
-
   return (
     <RestoranContext.Provider value={{state,dispatch}}>
       {children}
     </RestoranContext.Provider>
-  )
+  );
 };
-
-
