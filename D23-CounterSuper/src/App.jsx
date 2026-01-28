@@ -1,6 +1,5 @@
 // ? Ini App.jsx
 import {Card, ToggleTheme} from "./components/ui"; 
-import BankPintar from "./components/ui/BankPintar";
 import DompetBos from "./components/ui/DompetBos";
 
 import { ThemeContext } from "./context";
@@ -16,7 +15,6 @@ const App = () => {
         <Card/>
         <ToggleTheme/>
         <DompetBos/>
-        <BankPintar/>
       </section>
     </ThemeContext.Provider>
   );
