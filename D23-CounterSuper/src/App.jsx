@@ -1,6 +1,6 @@
 // ? Ini App.jsx
-import {Card, ToggleTheme} from "./components/ui"; 
-import DompetBos from "./components/ui/DompetBos";
+import BankDashboard from "./components/features/BankDashboard";
+import { Card } from "./components/ui"; 
 
 import { ThemeContext } from "./context";
 import { useState } from "react";
@@ -13,9 +13,9 @@ const App = () => {
       <section className={`flex flex-col justify-center items-center min-h-screen transition-colors gap-6 ${theme === "light" ? "bg-white" : "bg-slate-800 text-white"}`}>
         <h1 className="text-3xl">Magic Theme</h1>
         <Card/>
-        <ToggleTheme/>
-        <DompetBos/>
+        <BankDashboard/>
       </section>
+
     </ThemeContext.Provider>
   );
 };
