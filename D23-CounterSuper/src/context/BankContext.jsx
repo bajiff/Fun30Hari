@@ -1,4 +1,4 @@
-// ? src/context/BankContext.js
+// ? src/context/BankContext.jsx
 import { createContext, useReducer } from "react";
 
 const initialState = {
@@ -23,7 +23,7 @@ const bankReducer = (state,action) => {
   };
 };
 
- const BankContext = createContext();
+export const BankContext = createContext();
 
 export const BankProvider = ({children}) => {
   const [state, dispatch] = useReducer(bankReducer, initialState);

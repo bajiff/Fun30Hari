@@ -1,7 +1,8 @@
 // ? /src/features/BankDashboard.jsx
-import { useState } from "react";
-import { dispatch } from "../../context/BankContext";
+import { useContext, useState } from "react";
+import { BankContext } from "../../context/BankContext";
 const BankDashboard = () => {
+  const {state,dispatch} = useContext(BankContext); 
   const [inputSaldo, setInputSaldo] = useState(0);
   const [inputUsername, setInputUsername] = useState("");
   
@@ -9,47 +10,62 @@ const BankDashboard = () => {
     e.preventDefault();
 
     dispatch({type: "GANTI_USERNAME", payload: inputUsername});
+    setInputUsername("");
   }
   
   const handleSetorSaldo = (e) => {
     e.preventDefault();
 
     dispatch({type: "SETOR", payload: inputSaldo});
+    setInputSaldo(0);
   };
 
   const handleTarikSaldo = (e) => {
     e.preventDefault();
 
     dispatch({type: "TARIK", payload: inputSaldo});
+    setInputSaldo(0);
   };
   return (
-    <section className="flex flex-col items-center justify-center">
+    <section className="flex flex-col items-center justify-center border rounded px-3">
+      <section className="flex flex-col items-start justify-center ">
+        <h1>Selamat datang {state.username}</h1>
+        <h1>Saldo Anda {state.saldo}</h1>
+      </section>
       {/* Ganti Username */}
-      <form onSubmit={handleGantiUsername}>
-        <label htmlFor="username">Setor Tunai</label>
-        <input type="number" name="username" id="username" value={inputUsername} onChange={(e) => setInputUsername(e.target.value)} />
-        <button>Ganti Username</button>
+      <form className="flex flex-col gap-2" onSubmit={handleGantiUsername}>
+        <label htmlFor="username">Ganti Username</label>
+        <input className="border rounded px-2" type="number" name="username" id="username" value={inputUsername} onChange={(e) => setInputUsername(e.target.value)} required autoFocus/>
+        <button className="border rounded px-2 bg-yellow-400">Ganti Username</button>
       </form>
 
       <br />
       {/* Setor Saldo */}
-      <form onSubmit={handleSetorSaldo}>
+      <form className="flex flex-col gap-2" onSubmit={handleSetorSaldo}>
         <label htmlFor="setor">Setor Tunai</label>
-        <input type="number" name="setor" id="setor" value={inputSaldo} onChange={(e) => setInputSaldo(parseInt(e.target.value))} />
-        <button>Setor</button>
+        <input className="border rounded px-2" type="number" name="setor" id="setor" value={inputSaldo} onChange={(e) => setInputSaldo(parseInt(e.target.value))} />
+        <button className="border rounded px-2 bg-yellow-400">Setor</button>
       </form>
 
       <br />
       {/* Tarik Saldo */}
-      <form onSubmit={handleTarikSaldo}>
+      <form className="flex flex-col gap-2" onSubmit={handleTarikSaldo}>
         <label htmlFor="tarik">Setor Tunai</label>
-        <input type="number" name="tarik" id="tarik" value={inputSaldo} onChange={(e) => setInputSaldo(parseInt(e.target.value))} />
-        <button>Tarik</button>
+        <input className="border rounded px-2" type="number" name="tarik" id="tarik" value={inputSaldo} onChange={(e) => setInputSaldo(parseInt(e.target.value))} />
+        <button className="border rounded px-2 bg-yellow-400">Tarik</button>
       </form>
 
       <br />
-      <button onClick={() => dispatch({type: "HAPUS_HISTORY", history: []})}>Reset History</button>
-
+      <div>
+        <h1>History</h1>
+        <ul>
+          {state.history.map((item, index) => {
+            <li key={index}>{item}</li>
+          })}
+          {state.history.length > 0 && (<button className="bg-red-600" onClick={() => dispatch({type: "HAPUS_HISTORY"})}>Reset History</button>)
+          }
+        </ul>
+      </div>
     </section>
   )
 }
