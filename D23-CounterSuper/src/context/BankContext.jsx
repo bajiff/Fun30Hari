@@ -15,7 +15,7 @@ const bankReducer = (state,action) => {
       if (state.saldo < action.payload) return state;
       return {...state, saldo: state.saldo - action.payload, history: [...state.history,`TARIK SALDO Rp. ${action.payload}`]};
     case "GANTI_USERNAME":
-      return {...state, username: action.payload, history: [...state.history, action.payload]};
+      return {...state, username: action.payload, history: [...state.history, `Username diganti menjadi ${action.payload}`]};
     case "HAPUS_HISTORY":
       return {...state, history: []};
     default:

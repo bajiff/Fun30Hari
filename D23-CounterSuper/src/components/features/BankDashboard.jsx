@@ -4,6 +4,7 @@ import { BankContext } from "../../context/BankContext";
 const BankDashboard = () => {
   const {state,dispatch} = useContext(BankContext); 
   const [inputSaldo, setInputSaldo] = useState(0);
+  const [inputTarikSaldo, setInputTarikSaldo] = useState(0);
   const [inputUsername, setInputUsername] = useState("");
   
   const handleGantiUsername = (e) => {
@@ -23,8 +24,8 @@ const BankDashboard = () => {
   const handleTarikSaldo = (e) => {
     e.preventDefault();
 
-    dispatch({type: "TARIK", payload: inputSaldo});
-    setInputSaldo(0);
+    dispatch({type: "TARIK", payload: inputTarikSaldo});
+    setInputTarikSaldo(0);
   };
   return (
     <section className="flex flex-col items-center justify-center border rounded px-3">
@@ -51,7 +52,7 @@ const BankDashboard = () => {
       {/* Tarik Saldo */}
       <form className="flex flex-col gap-2" onSubmit={handleTarikSaldo}>
         <label htmlFor="tarik">Setor Tunai</label>
-        <input className="border rounded px-2" type="number" name="tarik" id="tarik" value={inputSaldo} onChange={(e) => setInputSaldo(parseInt(e.target.value))} />
+        <input className="border rounded px-2" type="number" name="tarik" id="tarik" value={inputTarikSaldo} onChange={(e) => setInputTarikSaldo(parseInt(e.target.value))} />
         <button className="border rounded px-2 bg-yellow-400">Tarik</button>
       </form>
 
