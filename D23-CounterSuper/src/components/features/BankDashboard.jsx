@@ -35,7 +35,7 @@ const BankDashboard = () => {
       {/* Ganti Username */}
       <form className="flex flex-col gap-2" onSubmit={handleGantiUsername}>
         <label htmlFor="username">Ganti Username</label>
-        <input className="border rounded px-2" type="number" name="username" id="username" value={inputUsername} onChange={(e) => setInputUsername(e.target.value)} required autoFocus/>
+        <input className="border rounded px-2" type="text" name="username" id="username" value={inputUsername} onChange={(e) => setInputUsername(e.target.value)} required autoFocus/>
         <button className="border rounded px-2 bg-yellow-400">Ganti Username</button>
       </form>
 
@@ -55,16 +55,14 @@ const BankDashboard = () => {
         <button className="border rounded px-2 bg-yellow-400">Tarik</button>
       </form>
 
-      <br />
-      <div>
+      <div className="flex flex-col items-center mt-4">
         <h1>History</h1>
-        <ul>
-          {state.history.map((item, index) => {
-            <li key={index}>{item}</li>
-          })}
-          {state.history.length > 0 && (<button className="bg-red-600" onClick={() => dispatch({type: "HAPUS_HISTORY"})}>Reset History</button>)
-          }
+        <ul className="flex flex-col items-start justify-center">
+          {state.history.map((history, index)=> (
+            <li key={index}>{history}</li>
+          ))}
         </ul>
+          {state.history.length > 0 && (<button onClick={() => dispatch({type: "HAPUS_HISTORY"})}>Hapus History</button>)}
       </div>
     </section>
   )
