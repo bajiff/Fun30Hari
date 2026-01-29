@@ -5,6 +5,8 @@ import { Card, ToggleTheme } from "./components/ui";
 import { ThemeContext } from "./context";
 import { useState } from "react";
 import { BankProvider } from "./context/BankContext";
+import { CounterProvider } from "./context/CounterReducer";
+import DashboardCounter from "./components/ui/DashboardCounter";
 
 const App = () => {
   const [theme, setTheme] = useState("light");
@@ -15,9 +17,12 @@ const App = () => {
         <h1 className="text-3xl">Magic Theme</h1>
         <Card/>
         <ToggleTheme/>
-        <BankProvider>
+        {/* <BankProvider>
           <BankDashboard/>
-        </BankProvider>
+        </BankProvider> */}
+        <CounterProvider>
+          <DashboardCounter/>
+        </CounterProvider>
       </section>
 
     </ThemeContext.Provider>
