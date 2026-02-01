@@ -1,3 +1,4 @@
+// ? components/ui/DashboardCounter.jsx
 import { useContext, useState } from "react";
 import { CounterContext } from "../../context/CounterReducer";
 
@@ -26,6 +27,12 @@ const DashboardCounter = () => {
         <h1>Count {state.count}</h1>
         <h1>Step {state.step}</h1>
       </section>
+
+      <form className="flex flex-col items-start justify-center mt-2" onSubmit={handleIncrement}>
+        <label htmlFor="increment">Increment</label>
+        <input className="px-2 py-2 border rounded " type="number" name="increment" id="increment" value={inputIncrement} onChange={(e) => setInputIncrement(parseInt(e.target.value))} />
+        <button className="bg-green-500 px-2 py-1 rounded border my-2">Increment</button>
+      </form>
 
       <form className="flex flex-col items-start justify-center mt-2" onSubmit={handleIncrement}>
         <label htmlFor="increment">Increment</label>

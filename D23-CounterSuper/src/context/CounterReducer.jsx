@@ -1,3 +1,4 @@
+// ? context/CounterReducer.jsx
 import { createContext, useReducer } from "react";
 
 const initialState = {
@@ -15,9 +16,9 @@ export const counterReducer = (state, action) => {
       if (state.count - state.step < 0 ) return state;
     return {...state, count: state.count - state.step};
     case "CHANGE_NAME":
-      return {...state, name: state.payload};
+      return {...state, name: action.payload};
     case "RESET":
-      return 0;
+      return {...state,name: "", count: 0, step: 0};
     case "SET_STEP":
       return {...state, count: state.count ^ state.step};
   };
