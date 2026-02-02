@@ -18,7 +18,7 @@ export const counterReducer = (state, action) => {
     case "CHANGE_NAME":
       return {...state, name: action.payload};
     case "RESET":
-      return {...state, count: 0,};
+      return initialState;
     case "SET_STEP":
       return {...state, step: action.payload};
   };
