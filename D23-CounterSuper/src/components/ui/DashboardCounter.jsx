@@ -10,21 +10,21 @@ const DashboardCounter = () => {
 
   const handleIncrement = (e) => {
     e.preventDefault();
-    dispatch({type: "INCREMENT", action: inputIncrement})
+    dispatch({type: "INCREMENT"})
     
     setInputIncrement(0);
   };
 
   const handleDecrement = (e) => {
     e.preventDefault();
-    dispatch({type: "DECREMENT", action: inputDecrement})
+    dispatch({type: "DECREMENT"})
 
     setInputDecrement(0);
   };
   
   const handleStep = (e) => {
     e.preventDefault();
-    dispatch({type: "SET_STEP", action: inputStep})
+    dispatch({type: "SET_STEP", payload: inputStep})
 
     setInputDecrement(0);
   };
@@ -39,19 +39,19 @@ const DashboardCounter = () => {
 
       <form className="flex flex-col items-start justify-center mt-2" onSubmit={handleIncrement}>
         <label htmlFor="increment">Increment</label>
-        <input className="px-2 py-2 border rounded " type="number" name="increment" id="increment" value={inputIncrement} onChange={(e) => setInputIncrement(parseInt(e.target.value))} />
+        <input className="px-2 py-2 border rounded " type="button" name="increment" id="increment" value={inputIncrement} onChange={(e) => setInputIncrement(parseInt(e.target.value))} />
         <button className="bg-green-500 px-2 py-1 rounded border my-2">Increment</button>
       </form>
 
       <form className="flex flex-col items-start justify-center mt-2" onSubmit={handleDecrement}>
         <label htmlFor="decrement">Decrement</label>
-        <input className="px-2 py-2 border rounded " type="number" name="decrement" id="decrement" value={inputDecrement} onChange={(e) => setInputDecrement(parseInt(e.target.value))} />
+        <input className="px-2 py-2 border rounded " type="button" name="decrement" id="decrement" value={inputDecrement} onChange={(e) => setInputDecrement(parseInt(e.target.value))} />
         <button className="bg-orange-500 px-2 py-1 rounded border my-2">Decrement</button>
       </form>
       <form className="flex flex-col items-start justify-center mt-2" onSubmit={handleStep}>
-        <label htmlFor="setStep">Decrement</label>
+        <label htmlFor="setStep">Set Step</label>
         <input className="px-2 py-2 border rounded " type="number" name="setStep" id="setStep" value={inputStep} onChange={(e) => setInputStep(parseInt(e.target.value))} />
-        <button className="bg-orange-500 px-2 py-1 rounded border my-2">Decrement</button>
+        <button className="bg-orange-500 px-2 py-1 rounded border my-2">Set Step</button>
       </form>
       <button className="bg-red-500 px-2 py-1 rounded border my-2" onClick={() => dispatch({type: "RESET"})}>Reset</button>
     </section>
