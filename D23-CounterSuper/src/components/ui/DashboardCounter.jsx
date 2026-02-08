@@ -8,7 +8,8 @@ const DashboardCounter = () => {
 
   const handleStep = (e) => {
     e.preventDefault();
-    dispatch({type: "SET_STEP", payload: inputStep})
+    dispatch({type: "SET_STEP", payload: parseInt(inputStep)})
+    setInputStep(1)
   };
 
   return (
@@ -22,6 +23,13 @@ const DashboardCounter = () => {
       <button onClick={() => dispatch({type:"INCREMENT"})}>Increment</button>
       <button onClick={() => dispatch({type:"DECREMENT"})}>Decrement</button>
       <button onClick={() => dispatch({type:"RESET"})}>Reset</button>
+      
+      {/* Bagian Step */}
+      <form className="flex flex-col gap-3" onSubmit={handleStep}>
+        <label htmlFor="step">Step</label>
+        <input className="p-2" type="number" name="step" id="step" value={inputStep} onChange={e => setInputStep(e.target.value)} />
+        <button className="bg-green-500 rounded">Kirim Step</button>
+      </form>
       
       
     </section>
