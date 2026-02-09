@@ -8,7 +8,8 @@ const DashboardCounter = () => {
 
   const handleStep = (e) => {
     e.preventDefault();
-    dispatch({type: "SET_STEP", payload: parseInt(inputStep)})
+    const value = parseInt(inputStep) || 1;
+    dispatch({type: "SET_STEP", payload: value})
     setInputStep(1)
   };
 
